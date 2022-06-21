@@ -1,0 +1,102 @@
+
+type CapitalInfo {
+  latlng: [Float]
+}
+type Car {
+  side: String
+  signs: [String]
+}
+
+type CoatOfArms {
+  png: String
+  svg: String
+}
+type CountryEntry {
+  altSpellings: [String]
+  area: Int
+  borders: [String]
+  capital: [String]
+  capitalInfo: CapitalInfo
+  car: Car
+  cca2: String
+  cca3: String
+  ccn3: Int
+  cioc: String
+  coatOfArms: CoatOfArms
+  continents: [String]
+  currencies: Currencies
+  demonyms: Demonyms
+  fifa: String
+  flag: String
+  flags: Flags
+  """
+  Object typed as JSON since it has fields ["2011"] that are invalid graphql identifiers
+  """
+  gini: JSON
+  idd: Idd
+  independent: Boolean
+  landlocked: Boolean
+  languages: JSON
+  latlng: [Int]
+  maps: Maps
+  name: Name
+  population: Int
+  postalCode: PostalCode
+  region: String
+  startOfWeek: String
+  status: String
+  subregion: String
+  timezones: [String]
+  tld: [String]
+  unMember: Boolean
+}
+type Currencies {
+  INR: INR
+}
+
+type Demonyms {
+  eng: Eng
+}
+
+type Eng {
+  f: String
+  m: String
+}
+type Eng1 {
+  common: String
+  official: String
+}
+
+type Flags {
+  png: String
+  svg: String
+}
+
+type INR {
+  name: String
+  symbol: String
+}
+type Idd {
+  root: Int
+  suffixes: [Int]
+}
+
+type Maps {
+  googleMaps: String
+  openStreetMaps: String
+}
+type Name {
+  common: String
+  nativeName: JSON
+  official: String
+}
+
+type PostalCode {
+  format: String
+  regex: String
+}
+
+type Query {
+  country(countryCode: String!): [CountryEntry]
+    @rest(endpoint: "https://restcountries.com/v3.1/alpha/$countryCode;")
+}

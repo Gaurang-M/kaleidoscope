@@ -1,0 +1,13 @@
+schema
+  @sdl(
+    files: [
+      "air_quality/index.graphql"
+      "country/index.graphql"
+      "covid/index.graphql"
+      "currency_value/index.graphql"
+      "holidays/index.graphql"
+      "weather/index.graphql"
+    ]
+  ) {
+  query: Query
+}

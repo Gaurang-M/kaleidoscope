@@ -1,0 +1,72 @@
+type Creator {
+  displayName: String
+  email: String
+  self: Boolean
+}
+type End {
+  date: Date
+}
+type ItemsEntry {
+  created: DateTime
+  creator: Creator
+  description: String
+  end: End
+  etag: String
+  eventType: String
+  htmlLink: String
+  iCalUID: String
+  id: String
+  kind: String
+  organizer: Organizer
+  sequence: Int
+  start: Start
+  status: String
+  summary: String
+  transparency: String
+  updated: DateTime
+  visibility: String
+}
+type Organizer {
+  displayName: String
+  email: String
+  self: Boolean
+}
+type Holiday {
+  accessRole: String
+  defaultReminders: [JSON]
+  etag: String
+  items: [ItemsEntry]
+  kind: String
+  nextSyncToken: String
+  summary: String
+  timeZone: String
+  updated: DateTime
+}
+type Start {
+  date: Date
+}
+
+type CalendarCode {
+  calendarCode: String
+}
+
+type Query {
+  countryToGcalCode(countryCode: String): CalendarCode
+  @rest(
+    endpoint: "https://country-to-gcal-code.netlify.app/.netlify/functions/index"
+  )
+
+  holidayListByGcalCode(calendarCode: String!): Holiday
+    @rest(
+      endpoint: "https://www.googleapis.com/calendar/v3/calendars/$calendarCode%23holiday%40group.v.calendar.google.com/events?key=$google_calendar_api_key"
+      configuration: "google_api_config"
+    )
+
+  holidayListByCountry(countryCode: String!): Holiday
+  @sequence(
+    steps: [
+      { query: "countryToGcalCode" }
+      { query: "holidayListByGcalCode" }
+    ]
+  )
+}
