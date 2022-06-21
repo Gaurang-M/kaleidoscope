@@ -1,0 +1,10 @@
+configurationset:
+  - configuration:
+      name: openweather_config
+      openweather_appid: STEPZEN_OPENWEATHER_API_KEY
+  - configuration:
+      name: aqi_config
+      aqi_token: STEPZEN_AQI_API_KEY
+  - configuration:
+      name: google_api_config
+      google_calendar_api_key: STEPZEN_GOOGLE_CALENDAR_API_KEY

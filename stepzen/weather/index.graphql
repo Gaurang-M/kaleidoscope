@@ -1,0 +1,120 @@
+type Weather {
+  description: String
+  icon: String
+  id: Int
+  main: String
+}
+
+type Current {
+  clouds: Int
+  dew_point: Float
+  dt: Int
+  feels_like: Float
+  humidity: Int
+  pressure: Int
+  sunrise: Int
+  sunset: Int
+  temp: Float
+  uvi: Float
+  visibility: Int
+  weather: [Weather]
+  wind_deg: Int
+  wind_speed: Float
+}
+
+type FeelsLike {
+  day: Float
+  eve: Float
+  morn: Float
+  night: Float
+}
+
+type Temp {
+  day: Float
+  eve: Float
+  max: Float
+  min: Float
+  morn: Float
+  night: Float
+}
+
+type Daily {
+  clouds: Int
+  dew_point: Float
+  dt: Int
+  feels_like: FeelsLike
+  humidity: Int
+  moon_phase: Float
+  moonrise: Int
+  moonset: Int
+  pop: Int
+  pressure: Int
+  sunrise: Int
+  sunset: Int
+  temp: Temp
+  uvi: Float
+  weather: [Weather]
+  wind_deg: Int
+  wind_gust: Float
+  wind_speed: Float
+}
+
+type WeatherForecast {
+  current: Current
+  daily: [Daily]
+  lat: Float
+  lon: Float
+  timezone: String
+  timezone_offset: Int
+}
+
+enum Units {
+  standard
+  metric
+  imperial
+}
+
+type Coordinates {
+  country: String
+  lat: Float
+  lon: Float
+  name: String
+  zip: Int
+}
+
+type Query {
+  weatherForecastByCoordinates(
+    units: Units
+    lang: String! = "en"
+    lat: Float!
+    lon: Float!
+  ): WeatherForecast
+  @rest(
+    endpoint: "https://api.openweathermap.org/data/2.5/onecall?appid=$openweather_appid&lang=$lang&lat=$lat&lon=$lon&exclude=minutely%2Chourly"
+    configuration: "openweather_config"
+  )
+
+  coordinatesByZipAndCountry(
+    zip: String!
+    countryCode: String!
+  ): Coordinates
+  @rest(
+    endpoint: "http://api.openweathermap.org/geo/1.0/zip?appid=$openweather_appid&zip=$zip%2C$countryCode"
+    configuration: "openweather_config"
+  )
+
+  weatherForeCastByZipAndCountry(
+    zip: String!
+    countryCode: String,
+    units: Units,
+    lang: String! = "en"
+  ): WeatherForecast
+  @sequence(
+    steps: [
+      { query: "coordinatesByZipAndCountry" }
+      { query: "weatherForecastByCoordinates" }
+    ]
+  )
+}
+
+
