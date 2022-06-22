@@ -1,119 +1,224 @@
-type Weather {
-  description: String
+"""
+Some fields ["gb-defra-index", "us-epa-index"] are not valid graphql identifiers and were omitted
+"""
+type AirQuality {
+  co: Float
+  no2: Float
+  o3: Float
+  pm10: Float
+  pm2_5: Float
+  so2: Float
+}
+type Astro {
+  moon_illumination: Int
+  moon_phase: String
+  moonrise: String
+  moonset: String
+  sunrise: String
+  sunset: String
+}
+type Condition {
+  code: Int
   icon: String
-  id: Int
-  main: String
+  text: String
 }
-
+type Condition1 {
+  code: Int
+  icon: String
+  text: String
+}
+type Condition2 {
+  code: Int
+  icon: String
+  text: String
+}
 type Current {
-  clouds: Int
-  dew_point: Float
-  dt: Int
-  feels_like: Float
+  air_quality: AirQuality
+  cloud: Int
+  condition: Condition
+  feelslike_c: Float
+  feelslike_f: Float
+  gust_kph: Float
+  gust_mph: Float
   humidity: Int
-  pressure: Int
-  sunrise: Int
-  sunset: Int
-  temp: Float
-  uvi: Float
-  visibility: Int
-  weather: [Weather]
-  wind_deg: Int
-  wind_speed: Float
+  is_day: Int
+  last_updated: String
+  last_updated_epoch: Int
+  precip_in: Int
+  precip_mm: Int
+  pressure_in: Float
+  pressure_mb: Int
+  temp_c: Int
+  temp_f: Int
+  uv: Int
+  vis_km: Int
+  vis_miles: Int
+  wind_degree: Int
+  wind_dir: String
+  wind_kph: Float
+  wind_mph: Float
 }
-
-type FeelsLike {
-  day: Float
-  eve: Float
-  morn: Float
-  night: Float
+type Day {
+  avghumidity: Int
+  avgtemp_c: Float
+  avgtemp_f: Float
+  avgvis_km: Float
+  avgvis_miles: Int
+  condition: Condition1
+  daily_chance_of_rain: Int
+  daily_chance_of_snow: Int
+  daily_will_it_rain: Int
+  daily_will_it_snow: Int
+  maxtemp_c: Float
+  maxtemp_f: Float
+  maxwind_kph: Float
+  maxwind_mph: Float
+  mintemp_c: Float
+  mintemp_f: Float
+  totalprecip_in: Float
+  totalprecip_mm: Float
+  uv: Int
 }
-
-type Temp {
-  day: Float
-  eve: Float
-  max: Float
-  min: Float
-  morn: Float
-  night: Float
+type Forecast {
+  forecastday: [ForecastdayEntry]
 }
-
-type Daily {
-  clouds: Int
-  dew_point: Float
-  dt: Int
-  feels_like: FeelsLike
+type ForecastdayEntry {
+  astro: Astro
+  date: Date
+  date_epoch: Int
+  day: Day
+  hour: [HourEntry]
+}
+type HourEntry {
+  chance_of_rain: Int
+  chance_of_snow: Int
+  cloud: Int
+  condition: Condition2
+  dewpoint_c: Float
+  dewpoint_f: Float
+  feelslike_c: Float
+  feelslike_f: Float
+  gust_kph: Float
+  gust_mph: Float
+  heatindex_c: Float
+  heatindex_f: Float
   humidity: Int
-  moon_phase: Float
-  moonrise: Int
-  moonset: Int
-  pop: Int
-  pressure: Int
-  sunrise: Int
-  sunset: Int
-  temp: Temp
-  uvi: Float
-  weather: [Weather]
-  wind_deg: Int
-  wind_gust: Float
-  wind_speed: Float
+  is_day: Int
+  precip_in: Float
+  precip_mm: Float
+  pressure_in: Float
+  pressure_mb: Int
+  temp_c: Float
+  temp_f: Float
+  time: String
+  time_epoch: Int
+  uv: Int
+  vis_km: Int
+  vis_miles: Int
+  will_it_rain: Int
+  will_it_snow: Int
+  wind_degree: Int
+  wind_dir: String
+  wind_kph: Float
+  wind_mph: Float
+  windchill_c: Float
+  windchill_f: Float
 }
-
-type WeatherForecast {
-  current: Current
-  daily: [Daily]
+type Location {
+  country: String
   lat: Float
+  localtime: String
+  localtime_epoch: Int
   lon: Float
-  timezone: String
-  timezone_offset: Int
+  name: String
+  region: String
+  tz_id: String
+}
+type WeatherForecastResponse {
+  current: Current
+  forecast: Forecast
+  location: Location
 }
 
-enum Units {
-  standard
-  metric
-  imperial
+enum YesOrNo {
+  yes
+  no
 }
 
 type Coordinates {
   country: String
-  lat: Float
-  lon: Float
+  latitude: Float
+  longitude: Float
   name: String
   zip: Int
 }
 
-type Query {
-  weatherForecastByCoordinates(
-    units: Units
-    lang: String! = "en"
-    lat: Float!
-    lon: Float!
-  ): WeatherForecast
-  @rest(
-    endpoint: "https://api.openweathermap.org/data/2.5/onecall?appid=$openweather_appid&lang=$lang&lat=$lat&lon=$lon&exclude=minutely%2Chourly"
-    configuration: "openweather_config"
-  )
+type IPLookupResponse {
+  city: String
+  continent_code: String
+  continent_name: String
+  country_code: String
+  country_name: String
+  geoname_id: Int
+  ip: String
+  is_eu: Boolean
+  lat: Float
+  localtime: String
+  localtime_epoch: Int
+  lon: Float
+  region: String
+  type: String
+  tz_id: String
+}
 
+type Query {
   coordinatesByZipAndCountry(
     zip: String!
     countryCode: String!
   ): Coordinates
   @rest(
+    cel: """
+      function transformREST(s) {
+      const data = JSON.parse(s)
+      data['latitude'] = data['lat']
+      data['longitude'] = data['lon']
+      delete data['lat']
+      delete data['lon']
+      return JSON.stringify(data)
+    }
+    """
     endpoint: "http://api.openweathermap.org/geo/1.0/zip?appid=$openweather_appid&zip=$zip%2C$countryCode"
     configuration: "openweather_config"
   )
 
-  weatherForeCastByZipAndCountry(
+  weatherLookupByCoordinates(
+    aqi: YesOrNo!,
+    latitude: Float!,
+    longitude: Float!
+  ): WeatherForecastResponse
+  @rest(
+    endpoint: "http://api.weatherapi.com/v1/forecast.json?key=$weather_api_key&q=$latitude%2C$longitude"
+    configuration: "weather_com_config"
+  )
+
+  weatherLookupByZipAndCountry(
     zip: String!
-    countryCode: String,
-    units: Units,
-    lang: String! = "en"
-  ): WeatherForecast
+    countryCode: String!,
+    aqi: YesOrNo!,
+  ): WeatherForecastResponse
   @sequence(
     steps: [
       { query: "coordinatesByZipAndCountry" }
-      { query: "weatherForecastByCoordinates" }
+      { query: "weatherLookupByCoordinates", arguments: [{name: "aqi", argument: "aqi"}] }
     ]
+  )
+
+  lookupIP(
+    ip: String
+  ): IPLookupResponse
+  @rest(
+    endpoint: "http://api.weatherapi.com/v1/ip.json?key=$weather_api_key&q=$ip"
+    configuration: "weather_com_config"
   )
 }
 

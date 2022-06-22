@@ -23,7 +23,8 @@
     "eject": "react-scripts eject",
     "react-app-start": "react-scripts start",
     "stepzen-start": "stepzen start --dir stepzen",
-    "stepzen-login": "stepzen login"
+    "stepzen-login": "stepzen login",
+    "stepzen-deploy": "stepzen deploy api/place-kaleidoscope --schema=api/place-kaleidoscope"
   },
   "eslintConfig": {
     "extends": [
