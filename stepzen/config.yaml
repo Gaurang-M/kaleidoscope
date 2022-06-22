@@ -8,3 +8,6 @@ configurationset:
   - configuration:
       name: google_api_config
       google_calendar_api_key: STEPZEN_GOOGLE_CALENDAR_API_KEY
+  - configuration:
+      name: weather_com_config
+      weather_api_key: STEPZEN_WEATHER_COM_API_KEY
