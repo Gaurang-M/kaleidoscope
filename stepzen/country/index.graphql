@@ -24,7 +24,8 @@ type CountryEntry {
   cioc: String
   coatOfArms: CoatOfArms
   continents: [String]
-  currencies: Currencies
+  currencies: JSON
+  currency: String
   demonyms: Demonyms
   fifa: String
   flag: String
@@ -98,5 +99,19 @@ type PostalCode {
 
 type Query {
   country(countryCode: String!): [CountryEntry]
-    @rest(endpoint: "https://restcountries.com/v3.1/alpha/$countryCode;")
+    @rest(
+      endpoint: "https://restcountries.com/v3.1/alpha/$countryCode;"
+
+    )
+  
+  getCurrencyCodeForCountry(countryCode: String!): String
+    @rest(
+      endpoint: "https://restcountries.com/v3.1/alpha/$countryCode;"
+      cel:"""
+      function transformREST(s) {
+          var out = JSON.parse(s);
+          return JSON.stringify(Object.keys(out[0].currencies)[0])
+      }
+    """
+    )
 }
