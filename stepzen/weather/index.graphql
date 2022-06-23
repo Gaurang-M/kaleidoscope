@@ -197,7 +197,7 @@ type Query {
     longitude: Float!
   ): WeatherForecastResponse
   @rest(
-    endpoint: "http://api.weatherapi.com/v1/forecast.json?key=$weather_api_key&q=$latitude%2C$longitude"
+    endpoint: "http://api.weatherapi.com/v1/forecast.json?key=$weather_api_key&q=$latitude%2C$longitude&aqi=$aqi"
     configuration: "weather_com_config"
   )
 
