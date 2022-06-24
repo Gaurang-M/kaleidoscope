@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import {kaleidoscopeAppContext} from './context/city-context';
+import { Api, KaleidoscopeData } from './api/graphql-kaleidoscope';
+import LandingPage from './components/LandingPage';
 
 function App() {
+
+  const [data, setData] = useState<KaleidoscopeData | object>({})
+
+  const getKaleidoscopeData = async() =>{
+    const data =  await Api.getKaleidoscopeData();
+    setData(data)
+  }
+
+  useEffect(() => { 
+      getKaleidoscopeData();
+    return () => {
+      
+    }
+  }, [])
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <kaleidoscopeAppContext.Provider value={{
+      KaleidoscopeData: data 
+    }}>
+      <LandingPage />
+    </kaleidoscopeAppContext.Provider>
   );
 }
 
