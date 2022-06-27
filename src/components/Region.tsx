@@ -2,6 +2,7 @@ import React, { FunctionComponent, useContext } from "react";
 import { kaleidoscopeAppContext } from "../context/city-context";
 import { KaleidoscopeData } from "../api/graphql-kaleidoscope";
 import moment from "moment";
+import { FaLanguage } from "react-icons/fa";
 
 const Region: FunctionComponent<{}> = () => {
   const data: KaleidoscopeData = useContext(
@@ -32,9 +33,14 @@ const Region: FunctionComponent<{}> = () => {
           {!data.city && data.region && (
             <p className="p-2 text-2xl md:text-4xl text-white">{data.region}</p>
           )}
-          <p className="p-4 text-xs md:text-sm text-white text-end">
-            Languages Spoken: {data.languages?.join(",")}
-          </p>
+          {data?.languages && (
+            <div className="flex justify-start">
+              <FaLanguage className="my-auto h-12 w-12 text-cyan-500" />
+              <p className="my-auto text-xs md:text-sm text-white text-end">
+                {data.languages?.join(",")}
+              </p>
+            </div>
+          )}
         </ul>
         <div className="flex ">
           <p className="pt-8 pl-2 text-xs md:text-sm text-sky-100">
