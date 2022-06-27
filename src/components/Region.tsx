@@ -12,11 +12,16 @@ const Region : FunctionComponent<{}> = () => {
                     <p className="p-2 text-2xl text-sky-400">{data.continent}</p>
                     <p className="p-2 text-2xl text-white">/</p>
                     <p className="p-2 text-2xl text-sky-400">{data.country}</p>
-                    <p className="p-2 text-2xl text-white">/</p>
-                    <p className="p-2 text-2xl text-sky-400">{data.region}</p>
+                    {data.city && data.region && 
+                        <>
+                            <p className="p-2 text-2xl text-white">/</p>
+                            <p className="p-2 text-2xl text-sky-400">{data.region}</p>
+                        </>
+                    }
                 </div>
                 <ul className="flex">
-                    <p className="p-2 text-4xl text-white">{data.city}</p>
+                    {data.city && <p className="p-2 text-4xl text-white">{data.city}</p>}
+                    {!data.city && data.region && <p className="p-2 text-4xl text-white">{data.region}</p>}
                     <p className="p-4 text-sm text-white text-end">Languages Spoken: {data.languages?.join(",")}</p>
                 </ul>
                 <div className="flex ">
