@@ -35,8 +35,8 @@ const Region: FunctionComponent<{}> = () => {
           )}
           {data?.languages && (
             <div className="flex justify-start">
-              <FaLanguage className="my-auto h-12 w-12 text-cyan-500" />
-              <p className="my-auto text-xs md:text-sm text-white text-end">
+              <FaLanguage className="my-auto h-8 w-8 text-cyan-500" />
+              <p className="my-auto pl-2 text-xs md:text-sm text-white text-end">
                 {data.languages?.join(",")}
               </p>
             </div>
