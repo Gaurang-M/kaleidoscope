@@ -24,14 +24,14 @@ const LandingPage : FunctionComponent<{}> = () => {
             {data.country && 
                 <div className="">  
                     <Region />
-                    <div className="flex justify-between h-56 mx-32 mt-8">
+                    <div className="flex flex-col md:flex-row justify-between md:mx-32 mt-8">
                         <Currency />
                         <Covid />
                     </div>
-                    <div className="flex justify-center mx-32 mt-8">
+                    <div className="flex justify-center md:mx-32 mt-8">
                         <Holidays />
                     </div>
-                    <div className="flex justify-between mx-32 mt-8">
+                    <div className="flex flex-col md:flex-row justify-between md:mx-32 mt-8">
                         <CurrencyTimeSeriese />
                         <CovidTimeSeriese />
                     </div>

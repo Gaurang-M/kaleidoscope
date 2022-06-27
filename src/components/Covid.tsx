@@ -6,7 +6,7 @@ const Covid : FunctionComponent<{}> = () => {
     const data : KaleidoscopeData = useContext(kaleidoscopeAppContext).KaleidoscopeData;
     return (
         <>
-            {data?.covidData && <div className="h-56 w-full border-2 border-stone-300 rounded-lg mx-2 drop-shadow-lg">
+            {data?.covidData && <div className="h-56 w-full border-2 border-stone-300 rounded-lg mx-2 drop-shadow-lg mt-8 md:mt-0">
                 <div className="flex flex-col">
                     <div>
                         <p className=" w-1/2 mx-auto text-rose-500 text-center p-4 text-xl">

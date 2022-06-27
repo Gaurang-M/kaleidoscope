@@ -7,7 +7,6 @@ import HighchartsReact from 'highcharts-react-official';
 const CovidTimeSeriese : FunctionComponent<{}> = () => {
     const data : KaleidoscopeData = useContext(kaleidoscopeAppContext).KaleidoscopeData;
     let options = data.covidDataTimeSeriese;
-    debugger;
     let x = options?.map(a => a.date) as string[];
     let cases = options?.map(a => a.cases) as number[];
     let deaths = options?.map(a => a.deaths) as number[];
@@ -50,7 +49,7 @@ const CovidTimeSeriese : FunctionComponent<{}> = () => {
     }
     return (
         <>
-            {data.covidDataTimeSeriese && <div className="h-fit w-full border-2 border-stone-300 rounded-lg mx-2 drop-shadow-lg">
+            {data.covidDataTimeSeriese && <div className="h-fit w-full border-2 border-stone-300 rounded-lg mx-2 drop-shadow-lg mt-8 md:mt-0">
                 <HighchartsReact
                     highcharts={Highcharts}
                     options={HighchartOption}
