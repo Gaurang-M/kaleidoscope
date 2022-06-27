@@ -1,6 +1,6 @@
 # Introduction to "Place Kaleidoscope" App
 
-This app is a representation of how the front end could consume graph-ql API to reduce the excess payload information responded by API. The code base uses various open-source APIs to collate the information of a place where the user is present and pull the information by creating a graph oh graph endpoint. Stepzen is the tool used in the backend to host the graph-ql API.
+This app is a representation of how the front end could consume graph-ql API to reduce the excess payload information responded by API. The code base uses various open-source APIs to collate the information of a place where the user is present and pull the information by creating a graph of graph endpoint. [Stepzen](https://stepzen.com/) is the tool used in the backend to host the graph-ql API.
 
 ## Available Scripts
 
