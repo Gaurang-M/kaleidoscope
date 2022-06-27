@@ -1,6 +1,7 @@
 export const getKaleidoscopeDataFromIpLookup = (responseData:any) => {
     let ipLookup = responseData.data.lookupIP;
     let data = responseData.data;
+    let countryData = ipLookup.country[0];
     return {
         country: ipLookup.country_name,
         region: ipLookup.region,
@@ -10,7 +11,7 @@ export const getKaleidoscopeDataFromIpLookup = (responseData:any) => {
         continent: ipLookup.continent_name,
         lat: ipLookup.lat,
         long: ipLookup.lon,
-        languages: Object.values(ipLookup.country[0].languages) as string[],
+        languages: Object.values(countryData.languages) as string[],
         holidays: ipLookup.holidays.items.map((i:any) => {
             return {
                 date: i.start.date,
@@ -30,13 +31,13 @@ export const getKaleidoscopeDataFromIpLookup = (responseData:any) => {
                 rate: data.currency_time_series.rates[date][ipLookup.currency]
             }
         }),
-        covidData: {
-            cases: ipLookup.covid.active,
-            deaths: ipLookup.covid.deaths,
-            recovered: ipLookup.covid.recovered,
-            population: ipLookup.covid.population
-        },
-        covidDataTimeSeriese: Object.keys(ipLookup.historical_covid.timeline.cases).map((i:any) => {
+        covidData: ipLookup?.covid ? {
+            cases: ipLookup?.covid?.active,
+            deaths: ipLookup?.covid?.deaths,
+            recovered: ipLookup?.covid?.recovered,
+            population: ipLookup?.covid?.population
+        }: null,
+        covidDataTimeSeriese: ipLookup?.historical_covid ? Object.keys(ipLookup?.historical_covid?.timeline?.cases).map((i:any) => {
             let date = i;
             return {
                 cases: ipLookup.historical_covid.timeline.cases[date],
@@ -44,11 +45,13 @@ export const getKaleidoscopeDataFromIpLookup = (responseData:any) => {
                 recovered: ipLookup.historical_covid.timeline.recovered[date],
                 date
             }
-        }),
+        }) : null,
         weather: {
             icon:ipLookup.weather.current.condition.icon,
             desc:ipLookup.weather.current.condition.text,
-        }
-
+        },
+        flag: countryData.flags.png,
+        currencyName: countryData?.currencies[ipLookup.currency].name,
+        currencySymbol: countryData?.currencies[ipLookup.currency].symbol
     }
 }

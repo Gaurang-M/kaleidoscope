@@ -26,21 +26,45 @@ export interface weather {
 }
 
 export interface KaleidoscopeData {
-    country: string
-    region: string
-    tz: string
-    city?: string 
-    currency?: string
-    continent?: string
-    lat: number
-    long: number
-    languages?: Array<string>
-    holidays: Array<holidays>     
-    currencyRate: currentCurrencyRate
-    currencyRateTimeSeriese: Array<currentCurrencyRate>
-    covidData: covidData
-    covidDataTimeSeriese: Array<covidData>
-    weather: weather
+    country: string | null
+    region: string | null
+    tz: string | null
+    city?: string | null
+    currency?: string | null
+    continent?: string | null
+    lat: number | null
+    long: number | null
+    languages?: Array<string> | null
+    holidays: Array<holidays> | null
+    currencyRate: currentCurrencyRate | null
+    currencyRateTimeSeriese: Array<currentCurrencyRate> | null
+    covidData: covidData | null
+    covidDataTimeSeriese: Array<covidData> | null
+    weather: weather | null
+    flag?: String | null,
+    currencyName?: String | null,
+    currencySymbol?: String | null 
+}
+
+export const defaultKaleidoscopeData : KaleidoscopeData = {
+    country: null,
+    region: null,
+    tz: null,
+    city: null ,
+    currency: null,
+    continent: null,
+    lat: null,
+    long: null,
+    languages: null,
+    holidays: null,    
+    currencyRate: null,
+    currencyRateTimeSeriese: null,
+    covidData: null,
+    covidDataTimeSeriese: null,
+    weather: null,
+    flag: null,
+    currencyName: null,
+    currencySymbol: null
 }
 
 export const Api = {
