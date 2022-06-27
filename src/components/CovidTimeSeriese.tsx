@@ -49,7 +49,7 @@ const CovidTimeSeriese : FunctionComponent<{}> = () => {
     }
     return (
         <>
-            {data.covidDataTimeSeriese && <div className="h-fit w-full border-2 border-stone-300 rounded-lg mx-2 drop-shadow-lg mt-8 md:mt-0">
+            {data.covidDataTimeSeriese && <div className="h-fit w-full border-2 border-stone-300 rounded-lg md:mx-2 drop-shadow-lg mt-8 md:mt-0">
                 <HighchartsReact
                     highcharts={Highcharts}
                     options={HighchartOption}

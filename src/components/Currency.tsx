@@ -7,7 +7,7 @@ const Currency : FunctionComponent<{}> = () => {
     const data : KaleidoscopeData = useContext(kaleidoscopeAppContext).KaleidoscopeData;
     return (
         <>
-            <div className="h-56 w-full border-2 border-stone-300 rounded-lg mx-2 drop-shadow-lg">
+            <div className="h-56 w-full border-2 border-stone-300 rounded-lg md:mx-2 drop-shadow-lg">
                 <div className="grid grid-col-2 gap-2">
                     <div>
                         <FaMoneyCheckAlt className="h-24 w-12 mx-auto text-rose-300"/>

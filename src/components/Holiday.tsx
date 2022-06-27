@@ -36,7 +36,7 @@ const Holidays : FunctionComponent<{}> = () => {
     
     return (
         <>
-            <div className="h-fit w-full border-2 border-stone-300 rounded-lg mx-2 drop-shadow-lg">
+            <div className="h-fit w-full border-2 border-stone-300 rounded-lg md:mx-2 drop-shadow-lg">
                 <div className="flex flex-col justify-between">
                     <div>
                         <p className=" w-1/2 mx-auto text-rose-500 text-center p-4 text-xl">

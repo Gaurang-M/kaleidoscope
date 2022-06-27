@@ -36,7 +36,7 @@ const CurrencyTimeSeriese : FunctionComponent<{}> = () => {
     }
     return (
         <>
-            {data.currencyRateTimeSeriese && <div className="h-fit w-full border-2 border-stone-300 rounded-lg mx-2 drop-shadow-lg">
+            {data.currencyRateTimeSeriese && <div className="h-fit w-full border-2 border-stone-300 rounded-lg md:mx-2 drop-shadow-lg">
                 <HighchartsReact
                     highcharts={Highcharts}
                     options={HighchartOption}
