@@ -44,7 +44,7 @@ const Holidays: FunctionComponent<{}> = () => {
         <div className="flex flex-col justify-between">
           <div>
             <p className=" w-1/2 mx-auto text-rose-500 text-center p-4 text-xl">
-              Upcomming Holidays
+              Upcoming Holidays
             </p>
           </div>
           <div className="">
