@@ -60,10 +60,9 @@ type Query {
   ): CovidData
     @rest(endpoint: "https://corona.lmao.ninja/v2/countries/$countryCode;")
 
-
   historical_covid(
-    countryCode: String!,
+    countryCode: String!
     lastdays: Int! = 30
   ): HistoricalCovidData
-  @rest(endpoint: "https://corona.lmao.ninja/v2/historical/$countryCode;")
+    @rest(endpoint: "https://corona.lmao.ninja/v2/historical/$countryCode;")
 }

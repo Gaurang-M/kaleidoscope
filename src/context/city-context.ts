@@ -1,14 +1,16 @@
-import {createContext}  from 'react';
-import { KaleidoscopeData, defaultKaleidoscopeData } from '../api/graphql-kaleidoscope';
+import { createContext } from "react";
+import {
+  KaleidoscopeData,
+  defaultKaleidoscopeData,
+} from "../api/graphql-kaleidoscope";
 
 export type KaleidoscopeDataContext = {
-    KaleidoscopeData: KaleidoscopeData
-}  
+  KaleidoscopeData: KaleidoscopeData;
+};
 
 const contextDefaultValue: KaleidoscopeDataContext = {
-    KaleidoscopeData: defaultKaleidoscopeData 
-} 
+  KaleidoscopeData: defaultKaleidoscopeData,
+};
 
-export const kaleidoscopeAppContext = createContext<KaleidoscopeDataContext>(
-    contextDefaultValue
-);
+export const kaleidoscopeAppContext =
+  createContext<KaleidoscopeDataContext>(contextDefaultValue);

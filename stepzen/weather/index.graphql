@@ -171,122 +171,90 @@ type IPLookupResponse {
   tz_id: String
   country: [CountryEntry]
     @materializer(
-      query: "country",
-      arguments: [{
-        name: "countryCode", 
-        field: "country_code"
-      }]
+      query: "country"
+      arguments: [{ name: "countryCode", field: "country_code" }]
     )
   currency: String
     @materializer(
-      query: "getCurrencyCodeForCountry",
-      arguments: [{
-        name: "countryCode", 
-        field: "country_code"
-      }]
+      query: "getCurrencyCodeForCountry"
+      arguments: [{ name: "countryCode", field: "country_code" }]
     )
   weather: WeatherForecastResponse
     @materializer(
-      query: "weatherLookupByCoordinates",
-      arguments: [{
-        name: "latitude", 
-        field: "lat"
-      },{
-        name: "longitude", 
-        field: "lon"
-      }]
+      query: "weatherLookupByCoordinates"
+      arguments: [
+        { name: "latitude", field: "lat" }
+        { name: "longitude", field: "lon" }
+      ]
     )
   holidays: Holiday
     @materializer(
-      query: "holidayListByCountry",
-      arguments: [{
-        name: "countryCode", 
-        field: "country_code"
-      }]
+      query: "holidayListByCountry"
+      arguments: [{ name: "countryCode", field: "country_code" }]
     )
   covid: CovidData
     @materializer(
-      query: "covid",
-      arguments: [{
-        name: "countryCode", 
-        field: "country_code"
-      }]
+      query: "covid"
+      arguments: [{ name: "countryCode", field: "country_code" }]
     )
   historical_covid: HistoricalCovidData
     @materializer(
-      query: "historical_covid",
-      arguments: [{
-        name: "countryCode", 
-        field: "country_code"
-      }]
+      query: "historical_covid"
+      arguments: [{ name: "countryCode", field: "country_code" }]
     )
   currency_latest_rates: Currency_Latest_Rates
     @materializer(
-      query: "currency_latest_rates",
-      arguments: [{
-        name: "to", 
-        field: "currency"
-      }]
+      query: "currency_latest_rates"
+      arguments: [{ name: "to", field: "currency" }]
     )
   currency_time_series: Currency_TimeSeries_Rates
     @materializer(
-      query: "currency_time_series",
-      arguments: [{
-        name: "to", 
-        field: "currency"
-      }]
+      query: "currency_time_series"
+      arguments: [{ name: "to", field: "currency" }]
     )
-  
 }
 
 type Query {
-  coordinatesByZipAndCountry(
-    zip: String!
-    countryCode: String!
-  ): Coordinates
-  @rest(
-    cel: """
-      function transformREST(s) {
-      const data = JSON.parse(s)
-      data['latitude'] = data['lat']
-      data['longitude'] = data['lon']
-      delete data['lat']
-      delete data['lon']
-      return JSON.stringify(data)
-    }
-    """
-    endpoint: "http://api.openweathermap.org/geo/1.0/zip?appid=$openweather_appid&zip=$zip%2C$countryCode"
-    configuration: "openweather_config"
-  )
+  coordinatesByZipAndCountry(zip: String!, countryCode: String!): Coordinates
+    @rest(
+      cel: """
+        function transformREST(s) {
+        const data = JSON.parse(s)
+        data['latitude'] = data['lat']
+        data['longitude'] = data['lon']
+        delete data['lat']
+        delete data['lon']
+        return JSON.stringify(data)
+      }
+      """
+      endpoint: "http://api.openweathermap.org/geo/1.0/zip?appid=$openweather_appid&zip=$zip%2C$countryCode"
+      configuration: "openweather_config"
+    )
 
   weatherLookupByCoordinates(
-    latitude: Float!,
+    latitude: Float!
     longitude: Float!
   ): WeatherForecastResponse
-  @rest(
-    endpoint: "http://api.weatherapi.com/v1/forecast.json?key=$weather_api_key&q=$latitude%2C$longitude&aqi=yes"
-    configuration: "weather_com_config"
-  )
+    @rest(
+      endpoint: "http://api.weatherapi.com/v1/forecast.json?key=$weather_api_key&q=$latitude%2C$longitude&aqi=yes"
+      configuration: "weather_com_config"
+    )
 
   weatherLookupByZipAndCountry(
     zip: String!
-    countryCode: String!,
-    aqi: YesOrNo!,
+    countryCode: String!
+    aqi: YesOrNo!
   ): WeatherForecastResponse
-  @sequence(
-    steps: [
-      { query: "coordinatesByZipAndCountry" }
-      { query: "weatherLookupByCoordinates" }
-    ]
-  )
+    @sequence(
+      steps: [
+        { query: "coordinatesByZipAndCountry" }
+        { query: "weatherLookupByCoordinates" }
+      ]
+    )
 
-  lookupIP(
-    ip: String
-  ): IPLookupResponse
-  @rest(
-    endpoint: "http://api.weatherapi.com/v1/ip.json?key=$weather_api_key&q=$ip"
-    configuration: "weather_com_config"
-  )
+  lookupIP(ip: String): IPLookupResponse
+    @rest(
+      endpoint: "http://api.weatherapi.com/v1/ip.json?key=$weather_api_key&q=$ip"
+      configuration: "weather_com_config"
+    )
 }
-
-

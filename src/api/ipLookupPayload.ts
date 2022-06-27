@@ -1,4 +1,4 @@
-import Moment from "moment"
+import Moment from "moment";
 
 export const ipLookupQuery = `
 query getDataByIP($from: String!, $start_date: Date!, $end_date: Date!, $amount: Float!, $ip: String!) {
@@ -64,16 +64,18 @@ query getDataByIP($from: String!, $start_date: Date!, $end_date: Date!, $amount:
   }
 }
 
-`
+`;
 
-export const getIpLookupVariables = async() => {
-  let data = await fetch('https://api.ipify.org?format=json').then(res => res.json());
+export const getIpLookupVariables = async () => {
+  let data = await fetch("https://api.ipify.org?format=json").then((res) =>
+    res.json()
+  );
   const ip = data.ip;
   return {
-    "from":"USD",
-    "start_date":Moment().subtract(6, 'months').format('YYYY-MM-DD'),
-    "end_date":Moment().format('YYYY-MM-DD'),
-    "amount": 1,
-    "ip": ip
-  }
-}
+    from: "USD",
+    start_date: Moment().subtract(6, "months").format("YYYY-MM-DD"),
+    end_date: Moment().format("YYYY-MM-DD"),
+    amount: 1,
+    ip: ip,
+  };
+};

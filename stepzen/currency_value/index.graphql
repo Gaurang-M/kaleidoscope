@@ -25,8 +25,7 @@ type Query {
     from: String
     to: String
     amount: Float
-  ): Currency_Latest_Rates
-  @rest(endpoint: "https://api.frankfurter.app/latest")
+  ): Currency_Latest_Rates @rest(endpoint: "https://api.frankfurter.app/latest")
 
   currency_historical_rates(
     from: String
@@ -34,7 +33,7 @@ type Query {
     amount: Float
     date: Date
   ): Currency_Historical_Rates
-  @rest(endpoint: "https://api.frankfurter.app/$date")
+    @rest(endpoint: "https://api.frankfurter.app/$date")
 
   currency_time_series(
     from: String
@@ -43,27 +42,23 @@ type Query {
     start_date: Date
     end_date: Date
   ): Currency_TimeSeries_Rates
-  @rest(endpoint: "https://api.frankfurter.app/$start_date..$end_date")
+    @rest(endpoint: "https://api.frankfurter.app/$start_date..$end_date")
 
   currency_currency_list: JSON
-  @rest(endpoint: "https://api.frankfurter.app/currencies")
+    @rest(endpoint: "https://api.frankfurter.app/currencies")
 
-  currency_convertedAmount(
-    amount: Float!
-    from: String!
-    to: String!
-  ): Float
-  @rest(
-    cel: """
-    function transformREST(s) {
-      const data = JSON.parse(s)
-      let toCurrency = get('to')
-      let amount = get('amount')
-      let convertedAmount = (data["rates"][toCurrency]||1.00) * amount
+  currency_convertedAmount(amount: Float!, from: String!, to: String!): Float
+    @rest(
+      cel: """
+      function transformREST(s) {
+        const data = JSON.parse(s)
+        let toCurrency = get('to')
+        let amount = get('amount')
+        let convertedAmount = (data["rates"][toCurrency]||1.00) * amount
 
-      return JSON.stringify(convertedAmount)
-    }
-    """
-    endpoint: "https://api.frankfurter.app/latest?from=$from"
-  )
+        return JSON.stringify(convertedAmount)
+      }
+      """
+      endpoint: "https://api.frankfurter.app/latest?from=$from"
+    )
 }
