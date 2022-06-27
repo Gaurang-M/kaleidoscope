@@ -14,13 +14,25 @@ const Currency: FunctionComponent<{}> = () => {
           <div>
             <FaMoneyCheckAlt className="h-24 w-12 mx-auto text-rose-300" />
           </div>
-          <div className="mx-auto">
-            {data.currencyName} - {data.currencySymbol}
-          </div>
-          <div className="mx-auto text-2xl text-rose-500">
-            1 {data.currency} = {data.currencyRate?.rate}{" "}
-            {data.currencyRate?.base}{" "}
-          </div>
+          {data?.currencyName && data?.currencySymbol && (
+            <div className="mx-auto">
+              {data?.currencyName} - {data?.currencySymbol}
+            </div>
+          )}
+          {!data?.currencyName && data?.currencySymbol && (
+            <div className="mx-auto">
+              Curreny Symbol - {data?.currencySymbol}
+            </div>
+          )}
+          {data?.currencyName && !data?.currencySymbol && (
+            <div className="mx-auto">Currency Name - {data?.currencyName}</div>
+          )}
+          {data?.currencyRate && (
+            <div className="mx-auto text-2xl text-rose-500">
+              1 {data?.currency} = {data?.currencyRate?.rate}{" "}
+              {data?.currencyRate?.base}
+            </div>
+          )}
         </div>
       </div>
     </>

@@ -18,21 +18,23 @@ export const getKaleidoscopeDataFromIpLookup = (responseData: any) => {
         summary: i.summary,
       };
     }),
-    currencyRate: {
-      base: data.currency_latest_rates.base,
-      date: data.currency_latest_rates.date,
-      rate: data.currency_latest_rates.rates[ipLookup.currency],
-    },
-    currencyRateTimeSeriese: Object.keys(data.currency_time_series.rates).map(
-      (i: any) => {
-        let date = i;
-        return {
-          base: data.currency_time_series.base,
-          date: date,
-          rate: data.currency_time_series.rates[date][ipLookup.currency],
-        };
-      }
-    ),
+    currencyRate: data.currency_latest_rates
+      ? {
+          base: data.currency_latest_rates.base,
+          date: data.currency_latest_rates.date,
+          rate: data.currency_latest_rates.rates[ipLookup.currency],
+        }
+      : null,
+    currencyRateTimeSeriese: data.currency_time_series
+      ? Object.keys(data.currency_time_series.rates).map((i: any) => {
+          let date = i;
+          return {
+            base: data.currency_time_series.base,
+            date: date,
+            rate: data.currency_time_series.rates[date][ipLookup.currency],
+          };
+        })
+      : null,
     covidData: ipLookup?.covid
       ? {
           cases: ipLookup?.covid?.active,
