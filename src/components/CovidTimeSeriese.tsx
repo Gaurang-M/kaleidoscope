@@ -17,7 +17,7 @@ const CovidTimeSeriese: FunctionComponent<{}> = () => {
     chart: {
       events: {
         load() {
-          setTimeout(this.reflow.bind(this), 0);
+          //setTimeout(this.reflow.bind(this), 0);
         },
       },
     },

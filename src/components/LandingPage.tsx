@@ -30,7 +30,7 @@ const LandingPage: FunctionComponent<{}> = () => {
         </div>
       )}
       {data.country && (
-        <div className="">
+        <div className="pt-24">
           <Region />
           <div className="flex flex-col md:flex-row justify-between md:mx-32 mt-8">
             <Currency />
