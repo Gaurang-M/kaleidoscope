@@ -46,14 +46,12 @@ const LandingPage: FunctionComponent<{}> = () => {
             <Holidays />
             <Covid />
           </div>
-          <div className="flex flex-col md:flex-row justify-between md:mx-32 mt-8">
-            <CovidTimeSeriese />
-          </div>
           <div className="mt-8">
             <Footer />
           </div>
           <HolidayCalendar />
           <CurrencyTimeSeriese />
+          <CovidTimeSeriese />
         </div>
       )}
     </div>

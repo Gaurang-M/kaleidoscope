@@ -63,7 +63,7 @@ const CurrencyTimeSeriese: FunctionComponent<{}> = () => {
               ></button>
             </div>
             <div className="modal-body relative p-4">
-              {data.covidDataTimeSeriese && (
+              {data.currencyRateTimeSeriese && (
                 <div className="h-fit w-full">
                   <HighchartsReact
                     highcharts={Highcharts}
