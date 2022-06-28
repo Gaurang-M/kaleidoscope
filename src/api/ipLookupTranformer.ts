@@ -63,5 +63,7 @@ export const getKaleidoscopeDataFromIpLookup = (responseData: any) => {
     flag: countryData.flags.png,
     currencyName: countryData?.currencies[ipLookup.currency].name,
     currencySymbol: countryData?.currencies[ipLookup.currency].symbol,
+    timezone: countryData?.timezones,
+    tempreature: ipLookup.weather.forecast.forecastday[0].day.mintemp_c,
   };
 };

@@ -44,6 +44,8 @@ export interface KaleidoscopeData {
   flag?: String | null;
   currencyName?: String | null;
   currencySymbol?: String | null;
+  timezone?: Array<string> | null;
+  tempreature?: number | null;
 }
 
 export const defaultKaleidoscopeData: KaleidoscopeData = {

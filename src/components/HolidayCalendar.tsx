@@ -1,49 +1,49 @@
 import React, { FunctionComponent, useContext } from "react";
 import { KaleidoscopeData } from "../api/graphql-kaleidoscope";
 import { kaleidoscopeAppContext } from "../context/city-context";
-import * as Highcharts from "highcharts";
-import HighchartsReact from "highcharts-react-official";
+import moment from "moment";
+import Calendar from "react-calendar";
+import "../style/calendar.css";
 
-const CurrencyTimeSeriese: FunctionComponent<{}> = () => {
+const HolidayCalendar: FunctionComponent<{}> = () => {
   const data: KaleidoscopeData = useContext(
     kaleidoscopeAppContext
   ).KaleidoscopeData;
-  let options = data.currencyRateTimeSeriese?.slice(-30);
-  let x = options?.map((a) => a.date) as string[];
-  let y = options?.map((a) => a.rate) as number[];
-  let HighchartOption: Highcharts.Options = {
-    chart: {
-      events: {
-        load() {
-          //setTimeout(this.reflow.bind(this), 0);
-        },
-      },
-    },
-    title: {
-      text: `${data.currency} Time Seriese against ${data.currencyRate?.base}`,
-    },
-    xAxis: {
-      categories: x,
-    },
-    yAxis: {
-      title: {
-        text: `${data.currency}`,
-      },
-    },
-    series: [
-      {
-        name: `${data.currency}`,
-        type: "line",
-        data: y,
-      },
-    ],
+  // let upcommingHolidays = data?.holidays?.filter(holiday => {
+  //     const date = moment(holiday.date,"YYYY-MM-DD");
+  //     return date.diff(moment().format('YYYY-MM-DD')) >= 0
+  // });
+
+  let sortedUpcommingHolidays = data?.holidays?.sort(
+    (a, b) => +moment(a.date).valueOf() - +moment(b.date).valueOf()
+  );
+
+  const setBackgroundForHoliday = (date: moment.MomentInput) => {
+    const dateobj = sortedUpcommingHolidays?.find((x) => {
+      return (
+        moment(date).format("YYYY-MM-DD") ===
+        moment(x.date).format("YYYY-MM-DD")
+      );
+    });
+    return dateobj ? "highlight4" : "";
   };
+
+  const setHolidaySummary = (date: moment.MomentInput) => {
+    const dateobj = sortedUpcommingHolidays?.find((x) => {
+      return (
+        moment(date).format("YYYY-MM-DD") ===
+        moment(x.date).format("YYYY-MM-DD")
+      );
+    });
+    return dateobj ? <p>{dateobj.summary}</p> : null;
+  };
+
   return (
     <>
       <div
         className="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
-        id="exampleModal"
-        aria-labelledby="exampleModalLabel"
+        id="exampleModal1"
+        aria-labelledby="exampleModalLabel1"
         aria-hidden="true"
       >
         <div className="modal-dialog relative w-auto pointer-events-none">
@@ -51,9 +51,9 @@ const CurrencyTimeSeriese: FunctionComponent<{}> = () => {
             <div className="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
               <h5
                 className="text-xl font-medium leading-normal text-gray-800"
-                id="exampleModalLabel"
+                id="exampleModalLabel1"
               >
-                Timeline
+                Holiday List
               </h5>
               <button
                 type="button"
@@ -63,14 +63,19 @@ const CurrencyTimeSeriese: FunctionComponent<{}> = () => {
               ></button>
             </div>
             <div className="modal-body relative p-4">
-              {data.covidDataTimeSeriese && (
-                <div className="h-fit w-full">
-                  <HighchartsReact
-                    highcharts={Highcharts}
-                    options={HighchartOption}
-                  />
+              <div className="h-fit w-full">
+                <div className="flex flex-col justify-between">
+                  <div className="">
+                    <Calendar
+                      className=""
+                      tileClassName={({ date }) =>
+                        setBackgroundForHoliday(date)
+                      }
+                      tileContent={({ date }) => setHolidaySummary(date)}
+                    />
+                  </div>
                 </div>
-              )}
+              </div>
             </div>
             <div className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
               <button
@@ -102,4 +107,4 @@ const CurrencyTimeSeriese: FunctionComponent<{}> = () => {
     </>
   );
 };
-export default CurrencyTimeSeriese;
+export default HolidayCalendar;

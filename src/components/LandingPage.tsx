@@ -6,10 +6,13 @@ import { KaleidoscopeData } from "../api/graphql-kaleidoscope";
 import "../style/loader.css";
 import Currency from "./Currency";
 import Covid from "./Covid";
-import Holidays from "./Holiday";
+import HolidayCalendar from "./HolidayCalendar";
 import CurrencyTimeSeriese from "./CurrencyTimeSeriese";
 import CovidTimeSeriese from "./CovidTimeSeriese";
 import Footer from "./Footer";
+import Map from "./Map";
+import Weather from "./Weather";
+import Holidays from "./Holidays";
 
 const LandingPage: FunctionComponent<{}> = () => {
   const data: KaleidoscopeData = useContext(
@@ -30,22 +33,27 @@ const LandingPage: FunctionComponent<{}> = () => {
         </div>
       )}
       {data.country && (
-        <div className="pt-24">
+        <div className="pt-16">
+          {/* <div className="flex justify-center">
+            <Map />
+          </div> */}
           <Region />
-          <div className="flex flex-col md:flex-row justify-between md:mx-32 mt-8">
+          <div className="flex flex-col md:flex-row justify-between md:mx-16 mt-8">
+            <Weather />
             <Currency />
+          </div>
+          <div className="flex flex-col md:flex-row justify-between md:mx-16 mt-8">
+            <Holidays />
             <Covid />
           </div>
-          <div className="flex justify-center md:mx-32 mt-8">
-            <Holidays />
-          </div>
           <div className="flex flex-col md:flex-row justify-between md:mx-32 mt-8">
-            <CurrencyTimeSeriese />
             <CovidTimeSeriese />
           </div>
           <div className="mt-8">
             <Footer />
           </div>
+          <HolidayCalendar />
+          <CurrencyTimeSeriese />
         </div>
       )}
     </div>

@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useContext } from "react";
-import { FaMoneyCheckAlt } from "react-icons/fa";
+import currency_icon from "../assets/currency_icon.svg";
+import timeline_link from "../assets/timeline_link.svg";
 import { KaleidoscopeData } from "../api/graphql-kaleidoscope";
 import { kaleidoscopeAppContext } from "../context/city-context";
 
@@ -9,30 +10,28 @@ const Currency: FunctionComponent<{}> = () => {
   ).KaleidoscopeData;
   return (
     <>
-      <div className="h-56 w-full border-2 border-stone-300 rounded-lg md:mx-2 drop-shadow-lg">
-        <div className="grid grid-col-2 gap-2">
-          <div>
-            <FaMoneyCheckAlt className="h-24 w-12 mx-auto text-rose-300" />
-          </div>
-          {data?.currencyName && data?.currencySymbol && (
-            <div className="mx-auto">
+      <div className="h-[220px] w-full border-2 border-stone-300 rounded-3xl md:mx-4 drop-shadow-lg mt-8 md:mt-0">
+        <div className="flex flex-col justify-star">
+          <div className="flex p-4">
+            <img className="w-12 h-12" src={currency_icon}></img>
+            <div className="pt-4 pl-4">
               {data?.currencyName} - {data?.currencySymbol}
             </div>
-          )}
-          {!data?.currencyName && data?.currencySymbol && (
-            <div className="mx-auto">
-              Curreny Symbol - {data?.currencySymbol}
-            </div>
-          )}
-          {data?.currencyName && !data?.currencySymbol && (
-            <div className="mx-auto">Currency Name - {data?.currencyName}</div>
-          )}
+          </div>
           {data?.currencyRate && (
-            <div className="mx-auto text-2xl text-rose-500">
-              1 {data?.currency} = {data?.currencyRate?.rate}{" "}
-              {data?.currencyRate?.base}
+            <div className="p-4 text-4xl text-rose-400">
+              1 {data?.currency} ({data?.currencySymbol}) ={" "}
+              {data?.currencyRate?.rate} {data?.currencyRate?.base}
             </div>
           )}
+          <div className="flex justify-end">
+            <img
+              className="w-28 h-16 mr-8 cursor-pointer"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              src={timeline_link}
+            ></img>
+          </div>
         </div>
       </div>
     </>

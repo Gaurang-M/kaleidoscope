@@ -39,6 +39,13 @@ query getDataByIP($from: String!, $start_date: Date!, $end_date: Date!, $amount:
           text
         }
       }
+      forecast {
+        forecastday {
+          day {
+            mintemp_c
+          }
+        }
+      }
     }
     country {
       languages
@@ -46,6 +53,7 @@ query getDataByIP($from: String!, $start_date: Date!, $end_date: Date!, $amount:
         png
       }
       currencies
+      timezones
     }
   }
   currency_time_series(
@@ -63,6 +71,7 @@ query getDataByIP($from: String!, $start_date: Date!, $end_date: Date!, $amount:
     rates
   }
 }
+
 
 `;
 
