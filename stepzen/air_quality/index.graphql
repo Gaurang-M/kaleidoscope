@@ -1,0 +1,102 @@
+type AQ {
+  data: Data
+  status: String
+}
+type AttributionsEntry {
+  logo: String
+  name: String
+  url: String
+}
+type City {
+  geo: [Float]
+  location: String
+  name: String
+  url: String
+}
+
+type DailyAirQuality {
+  o3: [O3Entry]
+  pm10: [Pm10Entry]
+  pm25: [Pm25Entry]
+  uvi: [UviEntry]
+}
+type Data {
+  aqi: Int
+  attributions: [AttributionsEntry]
+  city: City
+  debug: Debug
+  dominentpol: String
+  forecast: Fcast
+  iaqi: Iaqi
+  idx: Int
+  time: Time
+}
+type Debug {
+  sync: DateTime
+}
+type Fcast {
+  daily: DailyAirQuality
+}
+
+type Iaqi {
+  co: Float
+  dew: Float
+  h: Float
+  no2: Float
+  o3: Float
+  p: Float
+  pm10: Float
+  pm25: Float
+  so2: Float
+  t: Float
+  w: Float
+}
+
+type O3Entry {
+  avg: Int
+  day: Date
+  max: Int
+  min: Int
+}
+
+type Pm10Entry {
+  avg: Int
+  day: Date
+  max: Int
+  min: Int
+}
+type Pm25Entry {
+  avg: Int
+  day: Date
+  max: Int
+  min: Int
+}
+type Time {
+  iso: DateTime
+  s: String
+  tz: String
+  v: Int
+}
+type UviEntry {
+  avg: Int
+  day: Date
+  max: Int
+  min: Int
+}
+
+type Query {
+  air_quality(latitude: Float, longitude: Float): AQ
+    @rest(
+      cel: """
+      function transformREST(s) {
+        let response = JSON.parse(s)
+        for(var attributeName in response.data.iaqi){
+          response.data.iaqi[attributeName] = response.data.iaqi[attributeName].v
+        }
+        return JSON.stringify(response)
+      }
+      """
+      endpoint: "https://api.waqi.info/feed/geo%3A$latitude%3B$longitude/?token=$aqi_token"
+      configuration: "aqi_config"
+    )
+}

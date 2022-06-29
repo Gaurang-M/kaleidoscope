@@ -212,6 +212,29 @@ type IPLookupResponse {
       query: "currency_time_series"
       arguments: [{ name: "to", field: "currency" }]
     )
+  air_quality: AQ
+    @materializer(
+      query: "air_quality"
+      arguments: [
+        { name: "latitude", field: "lat" }
+        { name: "longitude", field: "lon" }
+      ]
+    )
+  nearby_cafes: Root
+    @materializer(
+      query: "getPoiForLatLong_cafes"
+      arguments: [{ name: "lat", field: "lat" }, { name: "lon", field: "lon" }]
+    )
+  nearby_malls: Root
+    @materializer(
+      query: "getPoiForLatLong_malls"
+      arguments: [{ name: "lat", field: "lat" }, { name: "lon", field: "lon" }]
+    )
+  nearby_picnic_spots: Root
+    @materializer(
+      query: "getPoiForLatLong_picnic"
+      arguments: [{ name: "lat", field: "lat" }, { name: "lon", field: "lon" }]
+    )
 }
 
 type Query {

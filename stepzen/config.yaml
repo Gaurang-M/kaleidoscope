@@ -11,3 +11,6 @@ configurationset:
   - configuration:
       name: weather_com_config
       weather_api_key: STEPZEN_WEATHER_COM_API_KEY
+  - configuration:
+      name: open_trip_config
+      open_trip_token: STEPZEN_OPEN_TRIP_API_KEY
