@@ -1,7 +1,8 @@
 export const getKaleidoscopeDataFromIpLookup = (responseData: any) => {
-  let ipLookup = responseData.data.lookupIP;
+  let ipLookup = responseData.data.fingerprintjs_visitorHistory.ipLookup;
   let data = responseData.data;
-  let countryData = ipLookup.country[0];
+  let countryData =
+    responseData.data.fingerprintjs_visitorHistory.ipLookup.country[0];
   return {
     country: ipLookup.country_name,
     region: ipLookup.region,

@@ -35,9 +35,12 @@ const Holidays: FunctionComponent<{}> = () => {
           <div className="">
             <ul>
               {upcomingHolidays &&
-                upcomingHolidays.map((holiday) => {
+                upcomingHolidays.map((holiday, i) => {
                   return (
-                    <li className="h-8 text-lg border-b-2 border-zinc-200">
+                    <li
+                      key={i}
+                      className="h-8 text-lg border-b-2 border-zinc-200"
+                    >
                       <div className="flex justify-between">
                         <p className="px-8 text-zinc-500">{holiday.summary}</p>
                         <p className="px-8 text-zinc-500">

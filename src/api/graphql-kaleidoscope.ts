@@ -70,7 +70,7 @@ export const defaultKaleidoscopeData: KaleidoscopeData = {
 };
 
 export const Api = {
-  async getKaleidoscopeData(): Promise<KaleidoscopeData> {
+  async getKaleidoscopeData(visitorId: string): Promise<KaleidoscopeData> {
     const url = process.env.REACT_APP_STEPZEN_ENDPOINT as string;
     const key = process.env.REACT_APP_STEPZEN_API_KEY as string;
     const data = await fetch(url, {
@@ -81,7 +81,7 @@ export const Api = {
       },
       body: JSON.stringify({
         query: ipLookupQuery,
-        variables: await getIpLookupVariables(),
+        variables: await getIpLookupVariables(visitorId),
       }),
     }).then((res) => res.json());
     const transformedData: KaleidoscopeData =

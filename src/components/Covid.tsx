@@ -9,7 +9,6 @@ const Covid: FunctionComponent<{}> = () => {
   const data: KaleidoscopeData = useContext(
     kaleidoscopeAppContext
   ).KaleidoscopeData;
-  console.log(data.currencyRateTimeSeriese);
   return (
     <>
       <div className="flex flex-col w-full relative justify-end md:mx-4 mt-8 md:mt-0">

@@ -14,3 +14,6 @@ configurationset:
   - configuration:
       name: open_trip_config
       open_trip_token: STEPZEN_OPEN_TRIP_API_KEY
+  - configuration:
+      name: fingerprintjs_config_config
+      fingerprintjs_token: STEPZEN_FINGERPRINTJS_SECRET_KEY

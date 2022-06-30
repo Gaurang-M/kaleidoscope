@@ -8,6 +8,7 @@ schema
       "currency_value/index.graphql"
       "holidays/index.graphql"
       "weather/index.graphql"
+      "fingerprint/index.graphql"
     ]
   ) {
   query: Query

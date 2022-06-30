@@ -1,0 +1,85 @@
+type Fingerprintjs_VisitorHistory {
+  lastTimestamp: Fingerprintjs_Timestamp
+  visitorId: String!
+  visits: [Fingerprintjs_Visit]
+  ip: String
+  ipLookup: IPLookupResponse
+    @materializer(query: "lookupIP", arguments: [{ name: "ip", field: "ip" }])
+}
+
+type Fingerprintjs_Visit {
+  browserDetails: Fingerprintjs_BrowserDetails
+  incognito: Boolean
+  ip: String
+  ipLocation: Fingerprintjs_IpLocation
+  linkedId: String
+  requestId: String
+  time: DateTime
+  timestamp: Fingerprintjs_Timestamp
+  url: String
+}
+
+type Fingerprintjs_BrowserDetails {
+  browserFullVersion: String
+  browserMajorVersion: String
+  browserName: String
+  device: String
+  os: String
+  osVersion: String
+  userAgent: String
+}
+
+type Fingerprintjs_City {
+  name: String
+}
+
+type Fingerprintjs_Continent {
+  code: String
+  name: String
+}
+
+type Fingerprintjs_Country {
+  code: String
+  name: String
+}
+
+type Fingerprintjs_Subdivision {
+  isoCode: String
+  name: String
+}
+
+type Fingerprintjs_IpLocation {
+  accuracyRadius: Int
+  city: Fingerprintjs_City
+  continent: Fingerprintjs_Continent
+  country: Fingerprintjs_Country
+  latitude: Float
+  longitude: Float
+  postalCode: String
+  subdivisions: [Fingerprintjs_Subdivision]
+  timezone: String
+}
+
+scalar Fingerprintjs_Timestamp
+
+type Query {
+  fingerprintjs_visitorHistory(
+    id: String!
+    request_id: String
+    linked_id: String
+    limit: Int
+    before: Fingerprintjs_Timestamp
+  ): Fingerprintjs_VisitorHistory
+    @rest(
+      endpoint: "https://api.fpjs.io/visitors/$id"
+      headers: [{ name: "Auth-Token", value: "$fingerprintjs_token" }]
+      configuration: "fingerprintjs_config_config"
+      cel: """
+      function transformREST(s) {
+          var out = JSON.parse(s);
+          out['ip'] = (out.visits.length > 0)?out.visits[0].ip:'null';
+          return JSON.stringify(out)
+      }
+      """
+    )
+}
