@@ -16,6 +16,7 @@
     "highcharts": "^10.1.0",
     "highcharts-react-official": "^3.1.0",
     "moment": "^2.29.3",
+    "pigeon-maps": "^0.21.0",
     "react": "^18.2.0",
     "react-calendar": "^3.7.0",
     "react-dom": "^18.2.0",
@@ -55,6 +56,7 @@
     ]
   },
   "devDependencies": {
+    "@types/leaflet": "^1.7.11",
     "@types/react-calendar": "^3.5.1",
     "autoprefixer": "^10.4.7",
     "concurrently": "^7.2.2",

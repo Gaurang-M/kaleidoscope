@@ -1,66 +1,23 @@
-import React, {
-  FunctionComponent,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
-import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
+import React, { FunctionComponent, useContext } from "react";
+
 import { KaleidoscopeData } from "../api/graphql-kaleidoscope";
 import { kaleidoscopeAppContext } from "../context/city-context";
+import { Map, Marker } from "pigeon-maps";
 
-const Map: FunctionComponent<{}> = () => {
+const Maps: FunctionComponent<{}> = () => {
   const data: KaleidoscopeData = useContext(
     kaleidoscopeAppContext
   ).KaleidoscopeData;
 
-  const [zoom, setZoom] = useState<number>(5);
+  type Point = [number, number];
 
-  useEffect(() => {
-    setTimeout((e) => {
-      setZoom(5);
-    }, 2000);
-  }, []);
+  const position: Point = [data.lat as number, data.long as number];
 
-  const containerStyle = {
-    width: "100%",
-    height: "400px",
-  };
-
-  const center = {
-    lat: data?.lat || 0,
-    lng: data?.long || 0,
-  };
-
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: "AIzaSyDhPb6HK_o1qMR1XOMZlZIcapn0WOs0T9s",
-  });
-
-  const [map, setMap] = React.useState(null);
-
-  const onLoad = React.useCallback(function callback(map: any) {
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
-    setMap(map);
-  }, []);
-
-  const onUnmount = React.useCallback(function callback(map: any) {
-    setMap(null);
-  }, []);
-
-  return isLoaded ? (
-    <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={center}
-      zoom={zoom}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
-    >
-      <Marker position={center} />
-    </GoogleMap>
-  ) : (
-    <></>
+  return (
+    <Map height={300} defaultCenter={position} defaultZoom={11}>
+      <Marker width={50} anchor={position} />
+    </Map>
   );
 };
 
-export default Map;
+export default Maps;

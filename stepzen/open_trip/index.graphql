@@ -24,19 +24,19 @@ type Root {
 type Query {
   getPoiForLatLong_cafes(lat: Float, lon: Float): Root
     @rest(
-      endpoint: "https://api.opentripmap.com/0.1/en/places/radius?radius=5000&lon=$lon&lat=$lat&kinds=cafes&limit=10&apikey=$open_trip_token"
+      endpoint: "https://api.opentripmap.com/0.1/en/places/radius?radius=5000&lon=$lon&lat=$lat&kinds=cafes&limit=6&apikey=$open_trip_token"
       configuration: "open_trip_config"
     )
 
   getPoiForLatLong_malls(lat: Float, lon: Float): Root
     @rest(
-      endpoint: "https://api.opentripmap.com/0.1/en/places/radius?radius=5000&lon=$lon&lat=$lat&kinds=malls&limit=10&apikey=$open_trip_token"
+      endpoint: "https://api.opentripmap.com/0.1/en/places/radius?radius=5000&lon=$lon&lat=$lat&kinds=malls&limit=6&apikey=$open_trip_token"
       configuration: "open_trip_config"
     )
 
   getPoiForLatLong_picnic(lat: Float, lon: Float): Root
     @rest(
-      endpoint: "https://api.opentripmap.com/0.1/en/places/radius?radius=5000&lon=$lon&lat=$lat&kinds=picnic_site&limit=10&apikey=$open_trip_token"
+      endpoint: "https://api.opentripmap.com/0.1/en/places/radius?radius=5000&lon=$lon&lat=$lat&kinds=picnic_site&limit=6&apikey=$open_trip_token"
       configuration: "open_trip_config"
     )
 }
