@@ -63,15 +63,15 @@ const Places: FunctionComponent<{}> = () => {
 
   return (
     <div className="flex flex-col w-full relative justify-end md:mx-4">
-      <div className="h-[328px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
-        <div className="h-[328px] flex flex-col justify-start">
+      <div className="h-[332px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
+        <div className="h-[332px] flex flex-col justify-start">
           <FaMapMarkerAlt className="pt-4 h-12 w-12 mx-auto text-rose-400" />
           <p className="pt-2 text-rose-400 text-xl md:text-2xl mx-auto font-semibold">
             POPULAR PLACES
           </p>
         </div>
       </div>
-      <div className="h-[332px] w-full rounded-3xl md:mx-2 absolute">
+      <div className="h-[336px] w-full rounded-3xl md:mx-2 absolute">
         <img className="mx-auto z-40" src={element}></img>
         <div className="flex justify-center pt-24">
           {selectedTag.map((tag: any, i: number) => {
@@ -82,7 +82,9 @@ const Places: FunctionComponent<{}> = () => {
                     key={i}
                     className="border-2 bg-indigo-900 rounded-3xl mx-4 cursor-pointer"
                   >
-                    <p className="text-xl text-white px-4 ">{tag.name}</p>
+                    <p className="text-lg md:text-xl text-white px-4 ">
+                      {tag.name}
+                    </p>
                   </div>
                 )}
                 {!tag.selected && tag.data.length > 0 && (
@@ -91,14 +93,16 @@ const Places: FunctionComponent<{}> = () => {
                     onClick={() => setActiveTag(tag.id)}
                     className="border-2 border-indigo-900 rounded-3xl mx-4 cursor-pointer"
                   >
-                    <p className="text-xl text-indigo-900 px-4">{tag.name}</p>
+                    <p className="text-lg md:text-xl text-indigo-900 px-4">
+                      {tag.name}
+                    </p>
                   </div>
                 )}
               </>
             );
           })}
         </div>
-        <div className="">
+        <div className="pt-1">
           <ul>
             {placeData.map((place: any, i: number) => {
               return (
@@ -109,8 +113,10 @@ const Places: FunctionComponent<{}> = () => {
                       className="h-8 text-lg border-b-2 border-zinc-200"
                     >
                       <div className="flex justify-between">
-                        <p className="px-8 text-blue-500">{place.name}</p>
-                        <p className="px-8 text-zinc-500">{`${(
+                        <p className="px-2 md:px-8 text-blue-500 text-sm md:text-xl">
+                          {place.name}
+                        </p>
+                        <p className="px-2 md:px-8 text-zinc-500 text-sm md:text-xl">{`${(
                           place.dist * 0.001
                         ).toFixed(1)} km away`}</p>
                       </div>
