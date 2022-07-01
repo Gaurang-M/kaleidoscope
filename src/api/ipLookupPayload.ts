@@ -73,9 +73,6 @@ query getDataByVisitorID($from: String!, $start_date: Date!, $end_date: Date!, $
       }
       nearby_malls {
         features {
-          geometry {
-            type
-          }
           properties {
             dist
             kinds

@@ -25,6 +25,12 @@ export interface weather {
   desc: string;
 }
 
+export interface places {
+  dist: number;
+  kinds: string;
+  name: string;
+}
+
 export interface KaleidoscopeData {
   country: string | null;
   region: string | null;
@@ -46,6 +52,10 @@ export interface KaleidoscopeData {
   currencySymbol?: String | null;
   timezone?: Array<string> | null;
   tempreature?: number | null;
+  aqi?: number | null;
+  malls?: Array<places> | null;
+  cafes?: Array<places> | null;
+  picnicSpots?: Array<places> | null;
 }
 
 export const defaultKaleidoscopeData: KaleidoscopeData = {
@@ -67,6 +77,12 @@ export const defaultKaleidoscopeData: KaleidoscopeData = {
   flag: null,
   currencyName: null,
   currencySymbol: null,
+  timezone: null,
+  tempreature: null,
+  aqi: null,
+  malls: null,
+  cafes: null,
+  picnicSpots: null,
 };
 
 export const Api = {

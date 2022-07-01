@@ -5,19 +5,22 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "tw-elements";
 import { FpjsProvider } from "@fingerprintjs/fingerprintjs-pro-react";
+import ErrorBoundary from "./Errorboundry";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <FpjsProvider
-      loadOptions={{
-        apiKey: process.env.REACT_APP_FINGERPRINTJS_API_KEY as string,
-      }}
-    >
-      <App />
-    </FpjsProvider>
+    <ErrorBoundary>
+      <FpjsProvider
+        loadOptions={{
+          apiKey: process.env.REACT_APP_FINGERPRINTJS_API_KEY as string,
+        }}
+      >
+        <App />
+      </FpjsProvider>
+    </ErrorBoundary>
   </React.StrictMode>
 );
 

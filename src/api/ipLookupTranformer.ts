@@ -66,5 +66,27 @@ export const getKaleidoscopeDataFromIpLookup = (responseData: any) => {
     currencySymbol: countryData?.currencies[ipLookup.currency].symbol,
     timezone: countryData?.timezones,
     tempreature: ipLookup.weather.forecast.forecastday[0].day.mintemp_c,
+    aqi: ipLookup.air_quality.data.aqi,
+    cafes: ipLookup.nearby_cafes.features.map((place: any) => {
+      return {
+        dist: place?.properties.dist,
+        kinds: place?.properties.kinds,
+        name: place?.properties.name,
+      };
+    }),
+    malls: ipLookup.nearby_malls.features.map((place: any) => {
+      return {
+        dist: place?.properties.dist,
+        kinds: place?.properties.kinds,
+        name: place?.properties.name,
+      };
+    }),
+    picnicSpots: ipLookup.nearby_picnic_spots.features.map((place: any) => {
+      return {
+        dist: place?.properties.dist,
+        kinds: place?.properties.kinds,
+        name: place?.properties.name,
+      };
+    }),
   };
 };
