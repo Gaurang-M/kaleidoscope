@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/kaleidoscope/static/css/main.26adf53f.css",
-    "main.js": "/kaleidoscope/static/js/main.23db33e0.js",
+    "main.js": "/kaleidoscope/static/js/main.b09a028f.js",
     "static/js/787.c1112931.chunk.js": "/kaleidoscope/static/js/787.c1112931.chunk.js",
     "static/media/topbg1.png": "/kaleidoscope/static/media/topbg1.83e35b2d0a5d1ae61e3d.png",
     "static/media/timeline_link.svg": "/kaleidoscope/static/media/timeline_link.ebcd72fe1b3fe5e8fe2bbbc8bcb54be6.svg",
@@ -11,11 +11,11 @@
     "index.html": "/kaleidoscope/index.html",
     "static/media/element1.svg": "/kaleidoscope/static/media/element1.af593b3fb31b4fa8746a4d3f994b11ad.svg",
     "main.26adf53f.css.map": "/kaleidoscope/static/css/main.26adf53f.css.map",
-    "main.23db33e0.js.map": "/kaleidoscope/static/js/main.23db33e0.js.map",
+    "main.b09a028f.js.map": "/kaleidoscope/static/js/main.b09a028f.js.map",
     "787.c1112931.chunk.js.map": "/kaleidoscope/static/js/787.c1112931.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.26adf53f.css",
-    "static/js/main.23db33e0.js"
+    "static/js/main.b09a028f.js"
   ]
 }
