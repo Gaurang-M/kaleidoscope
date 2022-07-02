@@ -113,9 +113,15 @@ const Places: FunctionComponent<{}> = () => {
                       className="h-8 text-lg border-b-2 border-zinc-200"
                     >
                       <div className="flex justify-between">
-                        <p className="px-2 md:px-8 text-blue-500 text-sm md:text-xl">
+                        <a
+                          className="px-2 md:px-8 text-blue-500 text-sm md:text-xl cursor-pointer"
+                          href={`https://www.google.com/maps/search/?api=1&query=${place.long},${place.lat}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           {place.name}
-                        </p>
+                        </a>
+
                         <p className="px-2 md:px-8 text-zinc-500 text-sm md:text-xl">{`${(
                           place.dist * 0.001
                         ).toFixed(1)} km away`}</p>

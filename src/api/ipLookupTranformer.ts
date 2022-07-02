@@ -72,6 +72,8 @@ export const getKaleidoscopeDataFromIpLookup = (responseData: any) => {
         dist: place?.properties.dist,
         kinds: place?.properties.kinds,
         name: place?.properties.name,
+        lat: place?.geometry.coordinates[0],
+        long: place?.geometry.coordinates[1],
       };
     }),
     malls: ipLookup.nearby_malls.features.map((place: any) => {
@@ -79,6 +81,8 @@ export const getKaleidoscopeDataFromIpLookup = (responseData: any) => {
         dist: place?.properties.dist,
         kinds: place?.properties.kinds,
         name: place?.properties.name,
+        lat: place?.geometry.coordinates[0],
+        long: place?.geometry.coordinates[1],
       };
     }),
     picnicSpots: ipLookup.nearby_picnic_spots.features.map((place: any) => {
@@ -86,6 +90,8 @@ export const getKaleidoscopeDataFromIpLookup = (responseData: any) => {
         dist: place?.properties.dist,
         kinds: place?.properties.kinds,
         name: place?.properties.name,
+        lat: place?.geometry.coordinates[0],
+        long: place?.geometry.coordinates[1],
       };
     }),
   };

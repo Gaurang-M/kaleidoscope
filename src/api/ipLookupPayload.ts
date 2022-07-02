@@ -69,6 +69,9 @@ query getDataByVisitorID($from: String!, $start_date: Date!, $end_date: Date!, $
             kinds
             name
           }
+          geometry {
+            coordinates
+          }
         }
       }
       nearby_malls {
@@ -78,6 +81,9 @@ query getDataByVisitorID($from: String!, $start_date: Date!, $end_date: Date!, $
             kinds
             name
           }
+          geometry {
+            coordinates
+          }
         }
       }
       nearby_picnic_spots {
@@ -86,6 +92,9 @@ query getDataByVisitorID($from: String!, $start_date: Date!, $end_date: Date!, $
             dist
             kinds
             name
+          }
+          geometry {
+            coordinates
           }
         }
       }

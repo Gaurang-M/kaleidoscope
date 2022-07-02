@@ -29,6 +29,8 @@ export interface places {
   dist: number;
   kinds: string;
   name: string;
+  lat: number;
+  long: number;
 }
 
 export interface KaleidoscopeData {
