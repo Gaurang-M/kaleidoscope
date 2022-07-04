@@ -1,32 +1,42 @@
 import React, { useState, useEffect } from "react";
 import { kaleidoscopeAppContext } from "./context/city-context";
-import {
-  Api,
-  KaleidoscopeData,
-  defaultKaleidoscopeData,
-} from "./api/graphql-kaleidoscope";
+import { Api } from "./api/graphql-kaleidoscope";
+import { KaleidoscopeData, defaultKaleidoscopeData } from "./types/types";
 import LandingPage from "./components/LandingPage";
 
 import { useVisitorData } from "@fingerprintjs/fingerprintjs-pro-react";
+import { useDetectAdBlock } from "adblock-detect-react";
 
 function App() {
-  const fjData = useVisitorData().data;
+  const adBlockDetected = useDetectAdBlock();
+
+  React.useEffect(() => {
+    if (adBlockDetected) {
+      window.alert("ad block detected");
+    }
+  }, []);
+
+  const fjData = useVisitorData()?.data;
+  const err = useVisitorData()?.error;
+
   const visitorId = fjData?.visitorId;
 
   const [data, setData] = useState<KaleidoscopeData>(defaultKaleidoscopeData);
 
-  const getKaleidoscopeData = async () => {
-    console.log(fjData);
+  const getKaleidoscopeDataForVisitor = async (visitor: string | null) => {
     const data = await Api.getKaleidoscopeData(visitorId as string);
     setData(data);
   };
 
   useEffect(() => {
     if (visitorId) {
-      getKaleidoscopeData();
+      getKaleidoscopeDataForVisitor(visitorId as string);
+    }
+    if (err) {
+      getKaleidoscopeDataForVisitor(null);
     }
     return () => {};
-  }, [visitorId]);
+  }, [visitorId, err]);
 
   return (
     <kaleidoscopeAppContext.Provider

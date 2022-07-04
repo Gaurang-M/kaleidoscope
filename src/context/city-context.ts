@@ -2,7 +2,7 @@ import { createContext } from "react";
 import {
   KaleidoscopeData,
   defaultKaleidoscopeData,
-} from "../api/graphql-kaleidoscope";
+} from "../types/types";
 
 export type KaleidoscopeDataContext = {
   KaleidoscopeData: KaleidoscopeData;

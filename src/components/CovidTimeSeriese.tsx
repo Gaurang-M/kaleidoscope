@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useContext } from "react";
-import { KaleidoscopeData } from "../api/graphql-kaleidoscope";
+import { KaleidoscopeData } from "../types/types";
 import { kaleidoscopeAppContext } from "../context/city-context";
 import * as Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";

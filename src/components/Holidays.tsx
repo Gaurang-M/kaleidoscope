@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useContext } from "react";
 import element from "../assets/element1.svg";
 import cal_icon from "../assets/cal_icon.svg";
-import { KaleidoscopeData } from "../api/graphql-kaleidoscope";
+import { KaleidoscopeData } from "../types/types";
 import { kaleidoscopeAppContext } from "../context/city-context";
 import moment from "moment";
 import { FaCalendarAlt } from "react-icons/fa";

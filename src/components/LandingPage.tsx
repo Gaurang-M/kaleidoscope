@@ -2,7 +2,7 @@ import React, { FunctionComponent, useContext } from "react";
 import { kaleidoscopeAppContext } from "../context/city-context";
 import NavBar from "./NavBar";
 import Region from "./Region";
-import { KaleidoscopeData } from "../api/graphql-kaleidoscope";
+import { KaleidoscopeData } from "../types/types";
 import "../style/loader.css";
 import Currency from "./Currency";
 import Covid from "./Covid";

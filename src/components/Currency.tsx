@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useContext } from "react";
 import currency_icon from "../assets/currency_icon.svg";
 import timeline_link from "../assets/timeline_link.svg";
-import { KaleidoscopeData } from "../api/graphql-kaleidoscope";
+import { KaleidoscopeData } from "../types/types";
 import { kaleidoscopeAppContext } from "../context/city-context";
 import element from "../assets/element1.svg";
 

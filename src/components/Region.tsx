@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useContext } from "react";
 import { kaleidoscopeAppContext } from "../context/city-context";
-import { KaleidoscopeData } from "../api/graphql-kaleidoscope";
+import { KaleidoscopeData } from "../types/types";
 import moment from "moment";
 import { FaLanguage } from "react-icons/fa";
 // import element from "../assets/element1.svg";

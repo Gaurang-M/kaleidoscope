@@ -5,7 +5,7 @@ import React, {
   useEffect,
 } from "react";
 import element from "../assets/element1.svg";
-import { KaleidoscopeData } from "../api/graphql-kaleidoscope";
+import { KaleidoscopeData } from "../types/types";
 import { kaleidoscopeAppContext } from "../context/city-context";
 
 const Pollution: FunctionComponent<{}> = () => {

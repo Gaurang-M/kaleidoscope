@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useContext } from "react";
-import { KaleidoscopeData } from "../api/graphql-kaleidoscope";
+import { KaleidoscopeData } from "../types/types";
 import { kaleidoscopeAppContext } from "../context/city-context";
 import element from "../assets/element1.svg";
 import corona_icon from "../assets/corona_icon.svg";

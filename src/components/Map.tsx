@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useContext } from "react";
 
-import { KaleidoscopeData } from "../api/graphql-kaleidoscope";
+import { KaleidoscopeData } from "../types/types";
 import { kaleidoscopeAppContext } from "../context/city-context";
 import { Map, Marker } from "pigeon-maps";
 
