@@ -62,7 +62,7 @@ const Places: FunctionComponent<{}> = () => {
   };
 
   return (
-    <div className="flex flex-col w-full relative justify-end md:mx-4">
+    <div className="flex flex-col w-full relative justify-end md:ml-2 pt-8 md:pt-0">
       <div className="h-[332px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
         <div className="h-[332px] flex flex-col justify-start">
           <FaMapMarkerAlt className="pt-4 h-12 w-12 mx-auto text-rose-400" />
@@ -93,7 +93,7 @@ const Places: FunctionComponent<{}> = () => {
                     onClick={() => setActiveTag(tag.id)}
                     className="border-2 border-indigo-900 rounded-3xl mx-4 cursor-pointer"
                   >
-                    <p className="text-lg md:text-xl text-indigo-900 px-4">
+                    <p className="text-lg md:text-xl text-indigo-900 font-extrabold px-4">
                       {tag.name}
                     </p>
                   </div>
@@ -112,9 +112,9 @@ const Places: FunctionComponent<{}> = () => {
                       key={i}
                       className="h-8 text-lg border-b-2 border-zinc-200"
                     >
-                      <div className="flex justify-between">
+                      <div className="flex justify-between pt-2 md:pt-0">
                         <a
-                          className="px-2 md:px-8 text-blue-500 text-sm md:text-xl cursor-pointer"
+                          className="px-2 md:px-8 text-blue-500 font-extrabold text-sm md:text-xl cursor-pointer"
                           href={`https://www.google.com/maps/search/?api=1&query=${place.long},${place.lat}`}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -122,7 +122,7 @@ const Places: FunctionComponent<{}> = () => {
                           {place.name}
                         </a>
 
-                        <p className="px-2 md:px-8 text-zinc-500 text-sm md:text-xl">{`${(
+                        <p className="px-2 md:px-8 text-black text-sm md:text-xl font-extrabold">{`${(
                           place.dist * 0.001
                         ).toFixed(1)} km away`}</p>
                       </div>

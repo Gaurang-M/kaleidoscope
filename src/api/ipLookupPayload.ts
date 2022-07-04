@@ -123,7 +123,7 @@ export const getIpLookupVariables = async (visitorId: string) => {
   // );
   // const ip = data.ip;
   return {
-    from: "USD",
+    from: "EUR",
     start_date: Moment().subtract(6, "months").format("YYYY-MM-DD"),
     end_date: Moment().format("YYYY-MM-DD"),
     amount: 1,

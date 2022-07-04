@@ -4,7 +4,7 @@ import { KaleidoscopeData } from "../api/graphql-kaleidoscope";
 import { kaleidoscopeAppContext } from "../context/city-context";
 import { Map, Marker } from "pigeon-maps";
 
-const Maps: FunctionComponent<{}> = () => {
+const Maps: FunctionComponent<{height : number}> = ({height}) => {
   const data: KaleidoscopeData = useContext(
     kaleidoscopeAppContext
   ).KaleidoscopeData;
@@ -14,7 +14,7 @@ const Maps: FunctionComponent<{}> = () => {
   const position: Point = [data.lat as number, data.long as number];
 
   return (
-    <Map height={300} defaultCenter={position} defaultZoom={11}>
+    <Map height={height} defaultCenter={position} defaultZoom={15}>
       <Marker width={50} anchor={position} />
     </Map>
   );

@@ -41,7 +41,7 @@ const HolidayCalendar: FunctionComponent<{}> = () => {
   return (
     <>
       <div
-        className="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+        className="font-noto modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
         id="exampleModal1"
         aria-labelledby="exampleModalLabel1"
         aria-hidden="true"

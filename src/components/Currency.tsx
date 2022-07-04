@@ -11,7 +11,7 @@ const Currency: FunctionComponent<{}> = () => {
   ).KaleidoscopeData;
   return (
     <>
-      <div className="flex flex-col w-full relative justify-end md:mx-4 mt-8 md:mt-0">
+      <div className="flex flex-col w-full md:w-2/3 relative justify-end pt-8 md:pt-0">
         <div className="h-[220px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
           <div className="flex flex-col justify-star">
             <p className="text-rose-400 text-xl md:text-2xl mx-auto font-semibold pt-4">
@@ -19,12 +19,12 @@ const Currency: FunctionComponent<{}> = () => {
             </p>
             <div className="flex p-4">
               <img className="w-12 h-12" src={currency_icon}></img>
-              <div className="pt-4 pl-4">
+              <p className="pt-4 pl-4 text-black font-extrabold">
                 {data?.currencyName} - {data?.currencySymbol}
-              </div>
+              </p>
             </div>
             {data?.currencyRate && (
-              <div className="p-4 text-4xl text-rose-400">
+              <div className="p-4 text-2xl md:text-4xl text-rose-400">
                 1 {data?.currency} ({data?.currencySymbol}) ={" "}
                 {data?.currencyRate?.rate} {data?.currencyRate?.base}
               </div>
@@ -35,7 +35,7 @@ const Currency: FunctionComponent<{}> = () => {
           <img className="mx-auto z-40" src={element}></img>
           <div className="flex justify-end">
             <img
-              className="w-28 h-16 mr-8 cursor-pointer"
+              className="w-24 h-12 md:w-28 md:h-16 mr-8 cursor-pointer"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
               src={timeline_link}

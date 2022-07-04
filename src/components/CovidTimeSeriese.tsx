@@ -55,7 +55,7 @@ const CovidTimeSeriese: FunctionComponent<{}> = () => {
   return (
     <>
       <div
-        className="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+        className="font-noto modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
         id="exampleModal3"
         aria-labelledby="exampleModalLabel3"
         aria-hidden="true"
