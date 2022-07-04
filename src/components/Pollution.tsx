@@ -126,37 +126,37 @@ const Pollution: FunctionComponent<{}> = () => {
             </div>
             <div className="pt-1">
               {range.id === 1 && (
-                <div className="w-full overflow-hidden inline-block pl-[7px]">
+                <div className="w-full overflow-hidden inline-block pl-[5px]">
                   <div className=" h-4 w-4 bg-green-500 rotate-45 transform origin-bottom-left"></div>
                 </div>
               )}
 
               {range.id === 2 && (
-                <div className="w-full overflow-hidden inline-block pl-[42px]">
+                <div className="w-full overflow-hidden inline-block pl-[35px]">
                   <div className=" h-4 w-4 bg-yellow-500 rotate-45 transform origin-bottom-left"></div>
                 </div>
               )}
 
               {range.id === 3 && (
-                <div className="w-full overflow-hidden inline-block pl-[77px]">
+                <div className="w-full overflow-hidden inline-block pl-[64px]">
                   <div className=" h-4 w-4 bg-orange-500 rotate-45 transform origin-bottom-left"></div>
                 </div>
               )}
 
               {range.id === 4 && (
-                <div className="w-full overflow-hidden inline-block pl-[113px]">
+                <div className="w-full overflow-hidden inline-block pl-[94px]">
                   <div className=" h-4 w-4 bg-red-500 rotate-45 transform origin-bottom-left"></div>
                 </div>
               )}
 
               {range.id === 5 && (
-                <div className="w-full overflow-hidden inline-block pl-[148px]">
+                <div className="w-full overflow-hidden inline-block pl-[125px]">
                   <div className=" h-4 w-4 bg-indigo-900 rotate-45 transform origin-bottom-left"></div>
                 </div>
               )}
 
               {range.id === 6 && (
-                <div className="w-full overflow-hidden inline-block pl-[183px]">
+                <div className="w-full overflow-hidden inline-block pl-[154px]">
                   <div className=" h-4 w-4 bg-orange-800 rotate-45 transform origin-bottom-left"></div>
                 </div>
               )}
