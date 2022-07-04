@@ -24,7 +24,7 @@ const Currency: FunctionComponent<{}> = () => {
               </p>
             </div>
             {data?.currencyRate && (
-              <div className="p-4 text-2xl md:text-4xl text-rose-400">
+              <div className="p-4 text-2xl md:text-4xl text-rose-400 font-extrabold">
                 1 {data?.currency} ({data?.currencySymbol}) ={" "}
                 {data?.currencyRate?.rate} {data?.currencyRate?.base}
               </div>
