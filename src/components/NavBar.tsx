@@ -7,7 +7,7 @@ const NavBar: FunctionComponent<{}> = () => {
       className="fixed flex z-40 w-full h-16 pl-4"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      <p className="text-xl md:text-2xl text-white font-semibold pt-3">
+      <p className="font-mont text-2xl text-white font-light pt-3 text-shadow">
         Place Kaleidoscope
       </p>
     </div>

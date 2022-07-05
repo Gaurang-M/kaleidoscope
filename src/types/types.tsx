@@ -55,6 +55,7 @@ export interface holidays {
     malls?: Array<places> | null;
     cafes?: Array<places> | null;
     picnicSpots?: Array<places> | null;
+    food?: string | null;
   }
   
   export const defaultKaleidoscopeData: KaleidoscopeData = {
@@ -82,4 +83,5 @@ export interface holidays {
     malls: null,
     cafes: null,
     picnicSpots: null,
+    food: null
   };

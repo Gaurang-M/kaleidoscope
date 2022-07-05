@@ -1,103 +1,107 @@
 import Moment from "moment";
 
 export const ipLookupQuery_Fallback = `
-query getDataByVisitorID($from: String!, $start_date: Date!, $end_date: Date!, $amount: Float!, $ip: String!) {
+query getDataByIp($from: String!, $start_date: Date!, $end_date: Date!, $amount: Float!, $ip: String!) {
   lookupIP(ip: $ip) {
-      continent_name
-      country_name
-      currency
-      lat
-      lon
-      region
-      tz_id
-      city
-      holidays {
-        items {
-          start {
-            date
-          }
-          summary
+    continent_name
+    country_name
+    currency
+    lat
+    lon
+    region
+    tz_id
+    city
+    holidays {
+      items {
+        start {
+          date
         }
+        summary
       }
-      covid {
-        active
+    }
+    covid {
+      active
+      deaths
+      recovered
+      population
+    }
+    historical_covid {
+      timeline {
+        cases
         deaths
         recovered
-        population
       }
-      historical_covid {
-        timeline {
-          cases
-          deaths
-          recovered
+    }
+    weather {
+      current {
+        condition {
+          icon
+          text
         }
       }
-      weather {
-        current {
-          condition {
-            icon
-            text
-          }
-        }
-        forecast {
-          forecastday {
-            day {
-              mintemp_c
-            }
-          }
-        }
-      }
-      country {
-        languages
-        flags {
-          png
-        }
-        currencies
-        timezones
-      }
-      air_quality {
-        data {
-          aqi
-        }
-      }
-      nearby_cafes {
-        features {
-          properties {
-            dist
-            kinds
-            name
-          }
-          geometry {
-            coordinates
-          }
-        }
-      }
-      nearby_malls {
-        features {
-          properties {
-            dist
-            kinds
-            name
-          }
-          geometry {
-            coordinates
-          }
-        }
-      }
-      nearby_picnic_spots {
-        features {
-          properties {
-            dist
-            kinds
-            name
-          }
-          geometry {
-            coordinates
+      forecast {
+        forecastday {
+          day {
+            mintemp_c
           }
         }
       }
     }
-  
+    country {
+      languages
+      flags {
+        png
+      }
+      currencies
+      timezones
+    }
+    air_quality {
+      data {
+        aqi
+      }
+    }
+    nearby_cafes {
+      features {
+        properties {
+          dist
+          kinds
+          name
+        }
+        geometry {
+          coordinates
+        }
+      }
+    }
+    nearby_malls {
+      features {
+        properties {
+          dist
+          kinds
+          name
+        }
+        geometry {
+          coordinates
+        }
+      }
+    }
+    nearby_picnic_spots {
+      features {
+        properties {
+          dist
+          kinds
+          name
+        }
+        geometry {
+          coordinates
+        }
+      }
+    }
+    food {
+      choices {
+        text
+      }
+    }
+  }
   currency_time_series(
     amount: $amount
     from: $from

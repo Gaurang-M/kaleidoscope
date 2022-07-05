@@ -1,0 +1,26 @@
+type ChoicesEntry {
+  finish_reason: String
+  index: Int
+  logprobs: JSON
+  text: String
+}
+type Food {
+  choices: [ChoicesEntry]
+  created: Int
+  id: String
+  model: String
+  object: String
+  usage: Usage
+}
+type Usage {
+  completion_tokens: Int
+  prompt_tokens: Int
+  total_tokens: Int
+}
+
+type Query {
+  getFoodByLatLong(latitude: Float, longitude: Float): Food
+    @rest(
+      endpoint: "https://kaleidoscope-food-api.netlify.app/.netlify/functions/index"
+    )
+}

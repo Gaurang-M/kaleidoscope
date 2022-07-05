@@ -15,6 +15,7 @@ import Weather from "./Weather";
 import Holidays from "./Holidays";
 import Places from "./Places";
 import Pollution from "./Pollution";
+import Food from "./Food";
 
 const LandingPage: FunctionComponent<{}> = () => {
   const data: KaleidoscopeData = useContext(
@@ -40,19 +41,20 @@ const LandingPage: FunctionComponent<{}> = () => {
             <Maps height={300} />
           </div>
           <Region />
-          <div className="font-noto flex flex-col md:flex-row justify-between mx-3 md:mx-16 mt-8">
+          <div className="flex flex-col md:flex-row justify-between mx-3 md:mx-16 mt-8">
             <Weather />
             <Pollution />
             <Currency />
           </div>
-          <div className="font-noto flex flex-col md:flex-row justify-between mx-3 md:mx-16 mt-8">
+          <div className="flex flex-col md:flex-row justify-between mx-3 md:mx-16 mt-8">
             <Holidays />
             <Places />
           </div>
-          <div className="font-noto flex flex-col md:flex-row justify-between mx-3 md:mx-16 mt-8">
+          <div className="flex flex-col md:flex-row justify-center mx-3 md:mx-16 mt-8">
+            <Food />
             <Covid />
           </div>
-          <div className="font-noto mt-8">
+          <div className="mt-8">
             <Footer />
           </div>
           <HolidayCalendar />

@@ -13,15 +13,19 @@ const Region: FunctionComponent<{}> = () => {
     <div className="flex flex-col md:flex-row justify-between h-fit md:h-32 bg-[#060A56] border-t-4 border-rose-300 mx-3 md:mx-16 rounded-b-3xl drop-shadow-2xl">
       <div className="flex flex-col">
         <div className="flex justify-start">
-          <p className="p-1 pl-6 text-xl md:text-xl text-sky-400">
+          <p className="font-noto font-semibold p-1 pl-6 text-sm text-sky-400">
             {data.continent}
           </p>
-          <p className="p-1 text-xl md:text-xl text-white">/</p>
-          <p className="p-1 text-xl md:text-xl text-sky-400">{data.country}</p>
+          <p className="font-noto font-semibold p-1 text-sm text-white">/</p>
+          <p className="font-noto font-semibold p-1 text-sm text-sky-400">
+            {data.country}
+          </p>
           {data.city && data.region && (
             <>
-              <p className="p-1 text-xl md:text-xl text-white">/</p>
-              <p className="p-1 text-xl md:text-xl text-sky-400">
+              <p className="font-noto font-semibold p-1 text-sm text-white">
+                /
+              </p>
+              <p className="font-noto font-semibold p-1 text-sm text-sky-400">
                 {data.region}
               </p>
             </>
@@ -32,15 +36,19 @@ const Region: FunctionComponent<{}> = () => {
         </div>
         <ul className="flex">
           {data.city && (
-            <p className="p-2 pl-6 text-4xl text-white">{data.city}</p>
+            <p className="font-mont font-medium p-2 pl-6 text-4xl text-white">
+              {data.city}
+            </p>
           )}
           {!data.city && data.region && (
-            <p className="p-2 pl-6 text-4xl text-white">{data.region}</p>
+            <p className="font-mont font-medium p-2 pl-6 text-4xl text-white">
+              {data.region}
+            </p>
           )}
           {data?.languages && (
             <div className="flex justify-start">
               <FaLanguage className="my-auto h-8 w-8 text-cyan-500" />
-              <p className="my-auto pl-2 text-xs md:text-sm text-white text-end">
+              <p className="font-mont my-auto pl-2 text-xs md:text-sm text-white text-end">
                 {data.languages?.join(",")}
               </p>
             </div>
@@ -54,19 +62,19 @@ const Region: FunctionComponent<{}> = () => {
         </div> */}
           <div className="w-full md:w-[1/2] rounded-t-3xl">
             <div className="flex justify-start pt-2">
-              <p className="p-1 text-5xl text-rose-400">
+              <p className="font-mont font-semibold p-1 text-6xl text-[#DF7D76]">
                 {moment().format("Do")}
               </p>
               <div className="flex flex-col pl-2">
-                <p className="text-lg text-rose-400">
+                <p className="font-mont font-extrabold text-2xl text-[#DF7D76]">
                   {moment().format("MMMM")}
                 </p>
-                <p className="text-lg text-zinc-500">
+                <p className="font-mont font-extrabold text-sm text-white">
                   {moment().format("YYYY")}
                 </p>
               </div>
             </div>
-            <div className="flex justify-start pt-2">
+            <div className="font-noto font-bold flex justify-start pt-2">
               <p className="text-sm text-white">{moment().format("h:mm a")}</p>
               <p className="text-sm text-white px-2"> | </p>
               <p className="text-sm text-white">{data.tz}</p>

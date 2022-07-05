@@ -66,7 +66,7 @@ const Places: FunctionComponent<{}> = () => {
       <div className="h-[332px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
         <div className="h-[332px] flex flex-col justify-start">
           <FaMapMarkerAlt className="pt-4 h-12 w-12 mx-auto text-rose-400" />
-          <p className="pt-2 text-rose-400 text-xl md:text-2xl mx-auto font-semibold">
+          <p className="pt-2 text-[#DF7D76] text-xl md:text-2xl mx-auto font-mont font-bold">
             POPULAR PLACES
           </p>
         </div>
@@ -82,7 +82,7 @@ const Places: FunctionComponent<{}> = () => {
                     key={i}
                     className="border-2 bg-indigo-900 rounded-3xl mx-4 cursor-pointer"
                   >
-                    <p className="text-lg md:text-xl text-white px-4 ">
+                    <p className="text-lg md:text-xl text-white px-4 font-noto">
                       {tag.name}
                     </p>
                   </div>
@@ -91,9 +91,9 @@ const Places: FunctionComponent<{}> = () => {
                   <div
                     key={i}
                     onClick={() => setActiveTag(tag.id)}
-                    className="border-2 border-indigo-900 rounded-3xl mx-4 cursor-pointer"
+                    className="border-2 bg-[#1D97DC] rounded-3xl mx-4 cursor-pointer"
                   >
-                    <p className="text-lg md:text-xl text-indigo-900 font-extrabold px-4">
+                    <p className="text-lg md:text-xl text-white font-noto px-4">
                       {tag.name}
                     </p>
                   </div>
@@ -114,7 +114,7 @@ const Places: FunctionComponent<{}> = () => {
                     >
                       <div className="flex justify-between pt-2 md:pt-0">
                         <a
-                          className="px-2 md:px-8 text-blue-500 font-extrabold text-sm md:text-xl cursor-pointer"
+                          className="px-2 md:px-8 text-[#1D97DC] font-noto font-bold text-sm md:text-lg cursor-pointer"
                           href={`https://www.google.com/maps/search/?api=1&query=${place.long},${place.lat}`}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -122,7 +122,7 @@ const Places: FunctionComponent<{}> = () => {
                           {place.name}
                         </a>
 
-                        <p className="px-2 md:px-8 text-black text-sm md:text-xl font-extrabold">{`${(
+                        <p className="px-2 md:px-8 text-black text-sm md:text-lg font-noto font-bold">{`${(
                           place.dist * 0.001
                         ).toFixed(1)} km away`}</p>
                       </div>

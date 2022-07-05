@@ -24,7 +24,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        noto: ["Montserrat", "sans-serif"],
+        mont: ["Montserrat", "sans-serif"],
+        noto: ["Noto Sans", "sans-serif"],
       },
     },
   },

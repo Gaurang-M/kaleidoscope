@@ -97,5 +97,6 @@ export const getKaleidoscopeDataFromIpLookup = (responseData: any) => {
         long: place?.geometry.coordinates[1],
       };
     }),
+    food: ipLookup.food.choices[0].text,
   };
 };

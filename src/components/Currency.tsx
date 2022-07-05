@@ -14,7 +14,7 @@ const Currency: FunctionComponent<{}> = () => {
       <div className="flex flex-col w-full md:w-2/3 relative justify-end pt-8 md:pt-0">
         <div className="h-[220px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
           <div className="flex flex-col justify-star">
-            <p className="text-rose-400 text-xl md:text-2xl mx-auto font-semibold pt-4">
+            <p className="text-[#DF7D76] text-xl md:text-2xl mx-auto font-mont font-bold pt-4">
               CURRENCY
             </p>
             <div className="flex p-4">
@@ -24,7 +24,7 @@ const Currency: FunctionComponent<{}> = () => {
               </p>
             </div>
             {data?.currencyRate && (
-              <div className="p-4 text-2xl md:text-4xl text-rose-400 font-extrabold">
+              <div className="pl-6 pt-2 text-2xl text-[#DF7D76] font-mont font-bold">
                 1 {data?.currency} ({data?.currencySymbol}) ={" "}
                 {data?.currencyRate?.rate} {data?.currencyRate?.base}
               </div>

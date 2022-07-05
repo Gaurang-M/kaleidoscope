@@ -98,6 +98,11 @@ query getDataByVisitorID($from: String!, $start_date: Date!, $end_date: Date!, $
           }
         }
       }
+      food {
+        choices {
+          text
+        }
+      }
     }
   }
   currency_time_series(

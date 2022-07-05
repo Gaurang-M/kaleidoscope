@@ -18,16 +18,16 @@ const Weather: FunctionComponent<{}> = () => {
       <div className="h-[150px] md:h-[220px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
         <div className="">
           <div className="flex justify-center">
-            <p className="text-rose-400 text-xl md:text-2xl mx-auto font-semibold pt-4">
+            <p className="font-mont font-bold text-[#DF7D76] text-xl md:text-2xl mx-auto pt-4">
               WEATHER
             </p>
           </div>
           <div className="h-[150px] md:h-[220px] flex md:flex-col justify-evenly md:justify-start">
             <div className="flex justify-center">
-              <p className="pt-2 text-5xl text-rose-400">{data?.tempreature}</p>
-              <p className="pt-2 pl-2 text-2xl text-black font-extrabold">
-                &deg;C
+              <p className="font-mont pt-2 text-5xl text-rose-400">
+                {data?.tempreature}
               </p>
+              <p className="pt-2 pl-2 text-2xl text-black font-noto ">&deg;C</p>
             </div>
             <div className="hidden md:block md:mx-auto flex justify-center">
               <p className="pt-4 text-sm text-zinc-500">{data.weather?.desc}</p>

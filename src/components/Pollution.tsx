@@ -76,39 +76,58 @@ const Pollution: FunctionComponent<{}> = () => {
       <div className="h-[220px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
         <div className="flex justify-evenly">
           <div className="flex flex-col">
-            <p className="text-rose-400 text-xl md:text-2xl mx-auto font-semibold pt-4">
+            <p className="text-[#DF7D76] text-xl md:text-2xl mx-auto font-mont font-bold pt-4">
               POLLUTION
             </p>
             <div className="flex justify-start pt-2">
-              <p className="text-black text-xl pt-2 font-extrabold">
+              <p className="font-noto text-black text-xl pt-1 font-extrabold">
                 PM2.5 AQI{" "}
               </p>
               <div className="flex ml-2 border-2 border-rose-500 rounded-3xl">
                 {range.id === 1 && (
-                  <div className="rounded-full w-4 h-4 bg-green-500 mt-2 mx-2 "></div>
+                  <div className="rounded-full w-3 h-4 bg-green-500 mt-2 mx-2 "></div>
                 )}
                 {range.id === 2 && (
-                  <div className="rounded-full w-4 h-4 bg-yellow-500 mt-2 mx-2 "></div>
+                  <div className="rounded-full w-3 h-3 bg-yellow-500 mt-2 mx-2 "></div>
                 )}
                 {range.id === 3 && (
-                  <div className="rounded-full w-4 h-4 bg-orange-500 mt-2 mx-2 "></div>
+                  <div className="rounded-full w-3 h-3 bg-orange-500 mt-2 mx-2 "></div>
                 )}
                 {range.id === 4 && (
-                  <div className="rounded-full w-4 h-4 bg-red-500 mt-2 mx-2 "></div>
+                  <div className="rounded-full w-3 h-3 bg-red-500 mt-2 mx-2 "></div>
                 )}
                 {range.id === 5 && (
-                  <div className="rounded-full w-4 h-4 bg-indigo-900 mt-2 mx-2 "></div>
+                  <div className="rounded-full w-3 h-3 bg-indigo-900 mt-2 mx-2 "></div>
                 )}
                 {range.id === 6 && (
-                  <div className="rounded-full w-4 h-4 bg-orange-800 mt-2 mx-2 "></div>
+                  <div className="rounded-full w-3 h-3 bg-orange-800 mt-2 mx-2 "></div>
                 )}
-                <p className="text-black text-sm mt-2 pr-2">{range?.message}</p>
+                <p className="font-noto text-black text-sm mt-1 pr-2">
+                  {range?.message}
+                </p>
               </div>
             </div>
-            <div className="flex justify-start pt-2">
-              <p className="text-5xl text-blue-400">{data.aqi}</p>
-              <p className="text-5xl text-zinc-400 pl-2"> / </p>
-              <p className="text-xl text-black pt-4 pl-2 font-extrabold">
+            <div className="font-mont flex justify-start pt-2">
+              {range.id === 1 && (
+                <p className="font-mont text-5xl text-green-500">{data.aqi}</p>
+              )}
+              {range.id === 2 && (
+                <p className="font-mont text-5xl text-yellow-500">{data.aqi}</p>
+              )}
+              {range.id === 3 && (
+                <p className="font-mont text-5xl text-orange-500">{data.aqi}</p>
+              )}
+              {range.id === 4 && (
+                <p className="font-mont text-5xl text-red-500">{data.aqi}</p>
+              )}
+              {range.id === 5 && (
+                <p className="font-mont text-5xl text-indigo-900">{data.aqi}</p>
+              )}
+              {range.id === 6 && (
+                <p className="font-mont text-5xl text-orange-800">{data.aqi}</p>
+              )}
+              <p className="font-mont text-5xl text-zinc-400 pl-2"> / </p>
+              <p className="font-mont text-xl text-black pt-4 pl-2 font-extrabold">
                 {" "}
                 30{" "}
               </p>
@@ -126,37 +145,37 @@ const Pollution: FunctionComponent<{}> = () => {
             </div>
             <div className="pt-1">
               {range.id === 1 && (
-                <div className="w-full overflow-hidden inline-block pl-[5px]">
+                <div className="w-full overflow-hidden inline-block pl-[7px]">
                   <div className=" h-4 w-4 bg-green-500 rotate-45 transform origin-bottom-left"></div>
                 </div>
               )}
 
               {range.id === 2 && (
-                <div className="w-full overflow-hidden inline-block pl-[35px]">
+                <div className="w-full overflow-hidden inline-block pl-[43px]">
                   <div className=" h-4 w-4 bg-yellow-500 rotate-45 transform origin-bottom-left"></div>
                 </div>
               )}
 
               {range.id === 3 && (
-                <div className="w-full overflow-hidden inline-block pl-[64px]">
+                <div className="w-full overflow-hidden inline-block pl-[79px]">
                   <div className=" h-4 w-4 bg-orange-500 rotate-45 transform origin-bottom-left"></div>
                 </div>
               )}
 
               {range.id === 4 && (
-                <div className="w-full overflow-hidden inline-block pl-[94px]">
+                <div className="w-full overflow-hidden inline-block pl-[115px]">
                   <div className=" h-4 w-4 bg-red-500 rotate-45 transform origin-bottom-left"></div>
                 </div>
               )}
 
               {range.id === 5 && (
-                <div className="w-full overflow-hidden inline-block pl-[125px]">
+                <div className="w-full overflow-hidden inline-block pl-[152px]">
                   <div className=" h-4 w-4 bg-indigo-900 rotate-45 transform origin-bottom-left"></div>
                 </div>
               )}
 
               {range.id === 6 && (
-                <div className="w-full overflow-hidden inline-block pl-[154px]">
+                <div className="w-full overflow-hidden inline-block pl-[185px]">
                   <div className=" h-4 w-4 bg-orange-800 rotate-45 transform origin-bottom-left"></div>
                 </div>
               )}
