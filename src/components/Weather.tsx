@@ -18,7 +18,7 @@ const Weather: FunctionComponent<{}> = () => {
       <div className="h-[150px] md:h-[220px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
         <div className="">
           <div className="flex justify-center">
-            <p className="font-mont font-bold text-[#DF7D76] text-xl md:text-2xl mx-auto pt-4">
+            <p className="font-mont font-bold text-[#DF7D76] text-xl mx-auto pt-4">
               WEATHER
             </p>
           </div>

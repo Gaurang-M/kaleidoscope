@@ -62,7 +62,7 @@ const Region: FunctionComponent<{}> = () => {
         </div> */}
           <div className="w-full md:w-[1/2] rounded-t-3xl">
             <div className="flex justify-start pt-2">
-              <p className="font-mont font-semibold p-1 text-2xl text-[#DF7D76]">
+              <p className="font-mont font-semibold p-1 text-5xl text-[#DF7D76]">
                 {moment().format("Do")}
               </p>
               <div className="flex flex-col pl-2">
@@ -85,7 +85,7 @@ const Region: FunctionComponent<{}> = () => {
         </div>
         <div className="flex p-8 md:p-2 justify-center">
           <img
-            className="w-[40px] h-[30px] md:p-4 md:w-[90px] md:h-[73px]"
+            className="w-[40px] h-[30px] md:p-4 md:w-[65px] md:h-[55px]"
             src={data.flag as string}
           ></img>
         </div>

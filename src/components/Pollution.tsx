@@ -76,19 +76,17 @@ const Pollution: FunctionComponent<{}> = () => {
       <div className="h-[220px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
         <div className="flex justify-evenly">
           <div className="flex flex-col">
-            <p className="text-[#DF7D76] text-xl md:text-2xl mx-auto font-mont font-bold pt-4">
+            <p className="text-[#DF7D76] text-xl mx-auto font-mont font-bold pt-4">
               POLLUTION
             </p>
             <div className="flex justify-start pt-2">
-              <p className="font-noto text-black text-xl pt-1 font-extrabold">
-                PM2.5 AQI{" "}
-              </p>
+              <p className="font-noto text-black text-sm pt-1">PM2.5 AQI </p>
               <div className="flex ml-2 border-2 border-rose-500 rounded-3xl">
                 {range.id === 1 && (
                   <div className="rounded-full w-3 h-4 bg-green-500 mt-2 mx-2 "></div>
                 )}
                 {range.id === 2 && (
-                  <div className="rounded-full w-3 h-3 bg-yellow-500 mt-2 mx-2 "></div>
+                  <div className="rounded-full w-3 h-3 bg-yellow-500 mt-1.5 mx-2 "></div>
                 )}
                 {range.id === 3 && (
                   <div className="rounded-full w-3 h-3 bg-orange-500 mt-2 mx-2 "></div>
@@ -102,7 +100,7 @@ const Pollution: FunctionComponent<{}> = () => {
                 {range.id === 6 && (
                   <div className="rounded-full w-3 h-3 bg-orange-800 mt-2 mx-2 "></div>
                 )}
-                <p className="font-noto text-black text-sm mt-1 pr-2">
+                <p className="font-noto text-black text-sm mt-0.5 pr-2">
                   {range?.message}
                 </p>
               </div>

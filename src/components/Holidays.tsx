@@ -27,12 +27,12 @@ const Holidays: FunctionComponent<{}> = () => {
       <div className="h-[332px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
         <div className="h-[324px] flex flex-col justify-start">
           <img className="pt-4 h-12 w-12 mx-auto" src={cal_icon}></img>
-          <p className="pt-2 text-[#DF7D76] text-xl md:text-2xl mx-auto font-mont font-bold">
+          <p className="pt-2 text-[#DF7D76] text-xl mx-auto font-mont font-bold">
             HOLIDAYS
           </p>
-          <p className="pt-2 text-lg text-[#1D97DC] mx-auto font-base">
+          {/* <p className="pt-2 text-lg text-[#1D97DC] mx-auto font-base">
             Upcoming Holidays
-          </p>
+          </p> */}
           <div className="pt-1">
             <ul>
               {upcomingHolidays &&
@@ -42,14 +42,12 @@ const Holidays: FunctionComponent<{}> = () => {
                       key={i}
                       className="h-8 text-lg border-b-2 border-zinc-200"
                     >
-                      <div className="flex justify-start pt-2 md:pt-0">
-                        <p className="px-2 md:pl-8 text-black text-sm md:text-lg font-noto">
+                      <div className="flex justify-start pt-1">
+                        <p className="px-2 md:pl-8 text-black text-sm font-noto">
                           {moment(holiday.date).format("Do MMM")}
                         </p>
-                        <p className="px-2 text-black text-sm md:text-lg font-noto">
-                          -
-                        </p>
-                        <p className="px-2 text-black text-sm md:text-lg font-noto">
+                        <p className="px-2 text-black text-sm  font-noto">-</p>
+                        <p className="px-2 text-black text-sm font-noto">
                           {holiday.summary}
                         </p>
                       </div>

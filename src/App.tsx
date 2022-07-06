@@ -29,7 +29,6 @@ function App() {
   }
 
   function errHandler(err: any) {
-    console.log(err);
     setCoord({ lat: null, long: null });
   }
 
@@ -63,9 +62,6 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(coord);
-    console.log(visitorId);
-    console.log(err);
     if (coord?.lat && coord?.long) {
       getKaleidoscopeDataForLatLong(coord);
     } else if (visitorId) {
@@ -78,7 +74,7 @@ function App() {
 
   return (
     //style={{ backgroundImage: `url(${bgImage})` }}
-    <div className="bg-zinc-200">
+    <div style={{ backgroundImage: `url(${bgImage})` }}>
       <kaleidoscopeAppContext.Provider
         value={{
           KaleidoscopeData: data,

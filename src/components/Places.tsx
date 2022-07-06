@@ -66,23 +66,20 @@ const Places: FunctionComponent<{}> = () => {
       <div className="h-[332px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
         <div className="h-[332px] flex flex-col justify-start">
           <FaMapMarkerAlt className="pt-4 h-12 w-12 mx-auto text-rose-400" />
-          <p className="pt-2 text-[#DF7D76] text-xl md:text-2xl mx-auto font-mont font-bold">
+          <p className="pt-2 text-[#DF7D76] text-xl mx-auto font-mont font-bold">
             POPULAR PLACES
           </p>
         </div>
       </div>
       <div className="h-[336px] w-full rounded-3xl md:mx-2 absolute">
         <img className="mx-auto z-40" src={element}></img>
-        <div className="flex justify-center pt-24">
+        <div className="flex justify-center pt-[84px]">
           {selectedTag.map((tag: any, i: number) => {
             return (
-              <>
+              <div key={i}>
                 {tag.selected && tag.data.length > 0 && (
-                  <div
-                    key={i}
-                    className="border-2 bg-indigo-900 rounded-3xl mx-4 cursor-pointer"
-                  >
-                    <p className="text-lg md:text-xl text-white px-4 font-noto">
+                  <div className="border-2 bg-indigo-900 rounded-3xl mx-1 cursor-pointer">
+                    <p className="text-sm text-white p-1 px-3 font-noto">
                       {tag.name}
                     </p>
                   </div>
@@ -91,14 +88,14 @@ const Places: FunctionComponent<{}> = () => {
                   <div
                     key={i}
                     onClick={() => setActiveTag(tag.id)}
-                    className="border-2 bg-[#1D97DC] rounded-3xl mx-4 cursor-pointer"
+                    className="border-2 bg-[#1D97DC] rounded-3xl mx-1 cursor-pointer"
                   >
-                    <p className="text-lg md:text-xl text-white font-noto px-4">
+                    <p className="text-sm text-white font-noto p-1 px-3">
                       {tag.name}
                     </p>
                   </div>
                 )}
-              </>
+              </div>
             );
           })}
         </div>
@@ -106,15 +103,12 @@ const Places: FunctionComponent<{}> = () => {
           <ul>
             {placeData.map((place: any, i: number) => {
               return (
-                <>
+                <div key={i}>
                   {place.name && (
-                    <li
-                      key={i}
-                      className="h-8 text-lg border-b-2 border-zinc-200"
-                    >
+                    <li className="h-8 text-lg border-b-2 border-zinc-200">
                       <div className="flex justify-between pt-2 md:pt-0">
                         <a
-                          className="px-2 md:px-8 text-[#1D97DC] font-noto font-bold text-sm md:text-lg cursor-pointer"
+                          className="px-2 md:px-8 text-[#1D97DC] font-noto font-bold text-sm cursor-pointer pt-1"
                           href={`https://www.google.com/maps/search/?api=1&query=${place.long},${place.lat}`}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -128,7 +122,7 @@ const Places: FunctionComponent<{}> = () => {
                       </div>
                     </li>
                   )}
-                </>
+                </div>
               );
             })}
           </ul>

@@ -36,7 +36,7 @@ const Food: FunctionComponent<{}> = () => {
           <div className="flex justify-center p-4">
             <img src={food}></img>
           </div>
-          <p className="pt-2 text-[#DF7D76] text-xl md:text-2xl mx-auto font-mont font-bold">
+          <p className="pt-2 text-[#DF7D76] text-xl mx-auto font-mont font-bold">
             POPULAR FOOD
           </p>
         </div>
@@ -46,19 +46,18 @@ const Food: FunctionComponent<{}> = () => {
         <div className="flex flex-wrap justify-center pt-32 w-full h-fit">
           {tags?.map((tag: any, i: number) => {
             return (
-              <>
+              <div key={i}>
                 {tag.length > 0 && (
                   <div
-                    key={i}
                     onClick={() => onTagCLick(tag)}
                     className="border-2 bg-[#1D97DC] rounded-3xl mx-1 cursor-pointer"
                   >
-                    <p className="capitalize text-lg md:text-xl text-white font-noto px-4">
+                    <p className="capitalize text-sm text-white font-noto p-1 px-3">
                       {tag}
                     </p>
                   </div>
                 )}
-              </>
+              </div>
             );
           })}
         </div>
