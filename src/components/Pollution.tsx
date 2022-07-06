@@ -83,7 +83,7 @@ const Pollution: FunctionComponent<{}> = () => {
               <p className="font-noto text-black text-sm pt-1">PM2.5 AQI </p>
               <div className="flex ml-2 border-2 border-rose-500 rounded-3xl">
                 {range.id === 1 && (
-                  <div className="rounded-full w-3 h-4 bg-green-500 mt-1.5 mx-2 "></div>
+                  <div className="rounded-full w-3 h-3 bg-green-500 mt-1.5 mx-2 "></div>
                 )}
                 {range.id === 2 && (
                   <div className="rounded-full w-3 h-3 bg-yellow-500 mt-1.5 mx-2 "></div>
