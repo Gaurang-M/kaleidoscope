@@ -4,9 +4,9 @@ import {
   getIpLookupVariables_Fallback,
 } from "./ipLookupPayload_Fallback";
 import { getKaleidoscopeDataFromIpLookup } from "./ipLookupTranformer";
-import { KaleidoscopeData } from "../types/types";
+import { KaleidoscopeData } from "../../types/types";
 
-export const Api = {
+export const Fp_Api = {
   async getKaleidoscopeData(
     visitorId: string | undefined
   ): Promise<KaleidoscopeData> {

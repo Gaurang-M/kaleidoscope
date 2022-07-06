@@ -10,7 +10,7 @@ const Region: FunctionComponent<{}> = () => {
     kaleidoscopeAppContext
   ).KaleidoscopeData;
   return (
-    <div className="flex flex-col md:flex-row justify-between h-fit md:h-32 bg-[#060A56] border-t-4 border-rose-300 mx-3 md:mx-16 rounded-b-3xl drop-shadow-2xl">
+    <div className="flex flex-col md:flex-row justify-between h-fit md:h-32 bg-[#060A56] border-t-4 border-rose-300 mx-3 md:mx-6 rounded-b-3xl drop-shadow-2xl">
       <div className="flex flex-col">
         <div className="flex justify-start">
           <p className="font-noto font-semibold p-1 pl-6 text-sm text-sky-400">
@@ -62,7 +62,7 @@ const Region: FunctionComponent<{}> = () => {
         </div> */}
           <div className="w-full md:w-[1/2] rounded-t-3xl">
             <div className="flex justify-start pt-2">
-              <p className="font-mont font-semibold p-1 text-6xl text-[#DF7D76]">
+              <p className="font-mont font-semibold p-1 text-2xl text-[#DF7D76]">
                 {moment().format("Do")}
               </p>
               <div className="flex flex-col pl-2">

@@ -22,7 +22,7 @@ const LandingPage: FunctionComponent<{}> = () => {
     kaleidoscopeAppContext
   ).KaleidoscopeData;
   return (
-    <div className="">
+    <div className="max-w-[1000px] mx-auto">
       <NavBar />
       {!data.country && (
         <div className="fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden bg-gray-700 opacity-75 flex flex-col items-center justify-center">
@@ -41,25 +41,27 @@ const LandingPage: FunctionComponent<{}> = () => {
             <Maps height={300} />
           </div>
           <Region />
-          <div className="flex flex-col md:flex-row justify-between mx-3 md:mx-16 mt-8">
+          <div className="flex flex-col md:flex-row justify-between mx-3 md:mx-6 mt-8">
             <Weather />
             <Pollution />
             <Currency />
           </div>
-          <div className="flex flex-col md:flex-row justify-between mx-3 md:mx-16 mt-8">
+          <div className="flex flex-col md:flex-row justify-between mx-3 md:mx-6 mt-8">
             <Holidays />
             <Places />
           </div>
-          <div className="flex flex-col md:flex-row justify-center mx-3 md:mx-16 mt-8">
+          <div className="flex flex-col md:flex-row justify-center mx-3 md:mx-6 mt-8">
             <Food />
             <Covid />
           </div>
           <div className="mt-8">
             <Footer />
           </div>
-          <HolidayCalendar />
-          <CurrencyTimeSeriese />
-          <CovidTimeSeriese />
+          <div className="font-noto">
+            <HolidayCalendar />
+            <CurrencyTimeSeriese />
+            <CovidTimeSeriese />
+          </div>
         </div>
       )}
     </div>

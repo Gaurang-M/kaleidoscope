@@ -122,7 +122,7 @@ const Places: FunctionComponent<{}> = () => {
                           {place.name}
                         </a>
 
-                        <p className="px-2 md:px-8 text-black text-sm md:text-lg font-noto font-bold">{`${(
+                        <p className="px-4 md:px-8 text-zinc-500 text-sm font-noto font-bold pt-0 md:pt-1">{`${(
                           place.dist * 0.001
                         ).toFixed(1)} km away`}</p>
                       </div>

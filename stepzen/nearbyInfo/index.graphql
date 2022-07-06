@@ -1,0 +1,31 @@
+type AdminCodes1 {
+  ISO3166_2: String
+}
+type GeonamesEntry {
+  adminCode1: Int
+  adminCodes1: AdminCodes1
+  adminName1: String
+  countryCode: String
+  countryId: Int
+  countryName: String
+  fcl: String
+  fclName: String
+  fcode: String
+  fcodeName: String
+  geonameId: Int
+  lat: Float
+  lng: Float
+  name: String
+  population: Float
+  toponymName: String
+}
+type GeonamesRoot {
+  geonames: [GeonamesEntry]
+}
+
+type Query {
+  getNearbyInfoFromLatLong(lat: Float, lng: Float): GeonamesRoot
+    @rest(
+      endpoint: "http://api.geonames.org/extendedFindNearbyJSON?lat=$lat&lng=$lng&username=gaurang7"
+    )
+}

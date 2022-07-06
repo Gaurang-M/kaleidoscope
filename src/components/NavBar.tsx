@@ -4,7 +4,7 @@ import bgImage from "../assets/topbg1.png";
 const NavBar: FunctionComponent<{}> = () => {
   return (
     <div
-      className="fixed flex z-40 w-full h-16 pl-4"
+      className="fixed flex z-40 w-[1000px] h-16 pl-4"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <p className="font-mont text-2xl text-white font-light pt-3 text-shadow">

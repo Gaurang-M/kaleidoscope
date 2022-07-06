@@ -9,30 +9,19 @@ const Food: FunctionComponent<{}> = () => {
     kaleidoscopeAppContext
   ).KaleidoscopeData;
 
+  // Sloppy logic written here to extract food items from a AI generated sentence.
   const index = data?.food?.indexOf("are") as number;
-  const foodStr = data?.food?.substring(index + 3);
-  const foodStr_altered = foodStr
+  let foodStr = data?.food?.substring(index + 3);
+  if (foodStr?.includes("include")) {
+    const indexFound = foodStr.indexOf("include") as number;
+    foodStr = foodStr.substring(indexFound + 7);
+  }
+  const tags = foodStr
     ?.replace("are", "")
-    .replace(/,/g, "")
+    .replace("include", "")
+    .replace(/and/g, "")
     .replace(".", "")
-    .split(" ");
-
-  let tags = [];
-  let lastTag = "";
-  let flag = false;
-  foodStr_altered?.forEach((e) => {
-    if (e && e.length > 0) {
-      if (e.trim() === "and") {
-        flag = true;
-      } else if (!flag) {
-        tags.push(e);
-      } else {
-        lastTag = lastTag + e + " ";
-      }
-    }
-  });
-
-  tags.push(lastTag);
+    .split(",");
 
   const onTagCLick = (tag: string) => {
     window
@@ -42,8 +31,8 @@ const Food: FunctionComponent<{}> = () => {
 
   return (
     <div className="flex flex-col w-full md:w-1/2 relative justify-end md:ml-2">
-      <div className="h-[200px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
-        <div className="h-[200px] flex flex-col justify-start">
+      <div className="h-[250px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
+        <div className="h-[250px] flex flex-col justify-start">
           <div className="flex justify-center p-4">
             <img src={food}></img>
           </div>
@@ -52,19 +41,19 @@ const Food: FunctionComponent<{}> = () => {
           </p>
         </div>
       </div>
-      <div className="h-[204px] w-full rounded-3xl md:mx-2 absolute">
+      <div className="h-[254px] w-full rounded-3xl md:mx-2 absolute">
         <img className="mx-auto z-40" src={element}></img>
-        <div className="flex justify-center pt-32">
-          {tags.map((tag: any, i: number) => {
+        <div className="flex flex-wrap justify-center pt-32 w-full h-fit">
+          {tags?.map((tag: any, i: number) => {
             return (
               <>
-                {tags.length > 0 && (
+                {tag.length > 0 && (
                   <div
                     key={i}
                     onClick={() => onTagCLick(tag)}
                     className="border-2 bg-[#1D97DC] rounded-3xl mx-1 cursor-pointer"
                   >
-                    <p className="text-lg md:text-xl text-white font-noto px-4">
+                    <p className="capitalize text-lg md:text-xl text-white font-noto px-4">
                       {tag}
                     </p>
                   </div>

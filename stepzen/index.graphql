@@ -2,11 +2,13 @@ schema
   @sdl(
     files: [
       "air_quality/index.graphql"
+      "country_code/index.graphql"
       "country/index.graphql"
       "covid/index.graphql"
-      "food/index.graphql"
+      "nearbyInfo/index.graphql"
       "currency_value/index.graphql"
       "fingerprint/index.graphql"
+      "food/index.graphql"
       "holidays/index.graphql"
       "open_trip/index.graphql"
       "weather/index.graphql"

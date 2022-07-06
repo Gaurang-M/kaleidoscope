@@ -35,7 +35,7 @@ const Currency: FunctionComponent<{}> = () => {
           <img className="mx-auto z-40" src={element}></img>
           <div className="flex justify-end">
             <img
-              className="w-24 h-12 md:w-28 md:h-16 mr-8 cursor-pointer"
+              className="w-24 h-12 mr-8 cursor-pointer"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
               src={timeline_link}
