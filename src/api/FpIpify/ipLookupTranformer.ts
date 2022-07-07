@@ -15,7 +15,7 @@ export const getKaleidoscopeDataFromIpLookup = (responseData: any) => {
     continent: ipLookup.continent_name,
     lat: ipLookup.lat,
     long: ipLookup.lon,
-    languages: countryData.languages
+    languages: countryData?.languages
       ? (Object.values(countryData.languages) as string[])
       : null,
     holidays: ipLookup.holidays.items.map((i: any) => {

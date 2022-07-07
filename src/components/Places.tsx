@@ -105,10 +105,10 @@ const Places: FunctionComponent<{}> = () => {
               return (
                 <div key={i}>
                   {place.name && (
-                    <li className="h-8 text-lg border-b-2 border-zinc-200">
-                      <div className="flex justify-between pt-2 md:pt-0">
+                    <li className="h-fit py-1 flex flex-col justify-center text-lg border-b-2 border-zinc-200">
+                      <div className="flex flex-wrap justify-between pt-2 md:pt-0">
                         <a
-                          className="px-2 md:px-8 text-[#1D97DC] font-noto font-bold text-sm cursor-pointer pt-1"
+                          className="px-2 md:px-8 w-1/2 text-[#1D97DC] font-noto font-bold text-sm cursor-pointer break-words"
                           href={`https://www.google.com/maps/search/?api=1&query=${place.long},${place.lat}`}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -116,7 +116,7 @@ const Places: FunctionComponent<{}> = () => {
                           {place.name}
                         </a>
 
-                        <p className="px-4 md:px-8 text-zinc-500 text-sm font-noto font-bold pt-0 md:pt-1">{`${(
+                        <p className="px-4 md:px-8 w-1/2 text-zinc-500 text-sm font-noto font-bold">{`${(
                           place.dist * 0.001
                         ).toFixed(1)} km away`}</p>
                       </div>
