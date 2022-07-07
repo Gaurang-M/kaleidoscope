@@ -30,7 +30,7 @@ const Food: FunctionComponent<{}> = () => {
   };
 
   return (
-    <div className="flex flex-col w-full md:w-1/2 relative justify-end md:ml-2">
+    <div className="flex flex-col w-full md:w-1/2 relative justify-start md:ml-2">
       <div className="h-[250px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
         <div className="h-[250px] flex flex-col justify-start">
           <div className="flex justify-center p-4">

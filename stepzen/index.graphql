@@ -5,11 +5,12 @@ schema
       "country_code/index.graphql"
       "country/index.graphql"
       "covid/index.graphql"
-      "nearbyInfo/index.graphql"
+      "historical_covid/index.graphql"
       "currency_value/index.graphql"
       "fingerprint/index.graphql"
       "food/index.graphql"
       "holidays/index.graphql"
+      "nearbyInfo/index.graphql"
       "open_trip/index.graphql"
       "weather/index.graphql"
     ]

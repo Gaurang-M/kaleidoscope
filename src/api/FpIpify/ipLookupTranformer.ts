@@ -15,7 +15,9 @@ export const getKaleidoscopeDataFromIpLookup = (responseData: any) => {
     continent: ipLookup.continent_name,
     lat: ipLookup.lat,
     long: ipLookup.lon,
-    languages: Object.values(countryData.languages) as string[],
+    languages: countryData.languages
+      ? (Object.values(countryData.languages) as string[])
+      : null,
     holidays: ipLookup.holidays.items.map((i: any) => {
       return {
         date: i.start.date,
@@ -41,10 +43,10 @@ export const getKaleidoscopeDataFromIpLookup = (responseData: any) => {
       : null,
     covidData: ipLookup?.covid
       ? {
-          cases: ipLookup?.covid?.active,
-          deaths: ipLookup?.covid?.deaths,
-          recovered: ipLookup?.covid?.recovered,
-          population: ipLookup?.covid?.population,
+          cases: ipLookup?.covid?.Countries.TotalConfirmed,
+          deaths: ipLookup?.covid?.Countries.TotalDeaths,
+          recovered: ipLookup?.covid?.Countries.TotalRecovered,
+          population: ipLookup?.covid?.Countries?.population,
         }
       : null,
     covidDataTimeSeriese: ipLookup?.historical_covid

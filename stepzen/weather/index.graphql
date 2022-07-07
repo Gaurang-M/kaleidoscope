@@ -169,6 +169,11 @@ type IPLookupResponse {
   region: String
   type: String
   tz_id: String
+  covid: CovidData
+    @materializer(
+      query: "getCovidData"
+      arguments: [{ name: "countryCode", field: "country_code" }]
+    )
   country: [CountryEntry]
     @materializer(
       query: "country"
@@ -198,16 +203,6 @@ type IPLookupResponse {
   holidays: Holiday
     @materializer(
       query: "holidayListByCountry"
-      arguments: [{ name: "countryCode", field: "country_code" }]
-    )
-  covid: CovidData
-    @materializer(
-      query: "covid"
-      arguments: [{ name: "countryCode", field: "country_code" }]
-    )
-  historical_covid: HistoricalCovidData
-    @materializer(
-      query: "historical_covid"
       arguments: [{ name: "countryCode", field: "country_code" }]
     )
   currency_latest_rates: Currency_Latest_Rates

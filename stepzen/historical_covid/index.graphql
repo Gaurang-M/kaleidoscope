@@ -1,0 +1,16 @@
+type DataProviderEntry {
+  cnt_confirmed: Int
+  cnt_death: Int
+  cnt_recovered: Int
+  date_stamp: Date
+}
+type HistoricCovidData {
+  dataProvider: [DataProviderEntry]
+}
+
+type Query {
+  getHistoricalCovidDataForCountry(countryCode: String): HistoricCovidData
+    @rest(
+      endpoint: "https://covid19.richdataservices.com/rds/api/query/int/jhu_country/select?cols=date_stamp,cnt_confirmed,cnt_death,cnt_recovered&where=(iso3166_1=$countryCode)&format=amcharts&limit=5000"
+    )
+}

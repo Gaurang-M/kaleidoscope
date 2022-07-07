@@ -19,19 +19,6 @@ query getDataByIp($from: String!, $start_date: Date!, $end_date: Date!, $amount:
         summary
       }
     }
-    covid {
-      active
-      deaths
-      recovered
-      population
-    }
-    historical_covid {
-      timeline {
-        cases
-        deaths
-        recovered
-      }
-    }
     weather {
       current {
         condition {
@@ -101,6 +88,13 @@ query getDataByIp($from: String!, $start_date: Date!, $end_date: Date!, $amount:
         text
       }
     }
+    covid {
+      Countries {
+        TotalConfirmed
+        TotalDeaths
+        TotalRecovered
+      }
+    }
   }
   currency_time_series(
     amount: $amount
@@ -117,6 +111,7 @@ query getDataByIp($from: String!, $start_date: Date!, $end_date: Date!, $amount:
     rates
   }
 }
+
 `;
 
 export const getIpLookupVariables_Fallback = async () => {

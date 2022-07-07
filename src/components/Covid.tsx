@@ -12,11 +12,11 @@ const Covid: FunctionComponent<{}> = () => {
   return (
     <>
       {data.covidData && (
-        <div className="flex flex-col w-full relative justify-end md:mx-4 mt-8 md:mt-0">
+        <div className="flex flex-col w-1/2 relative justify-end md:mx-4 mt-8 md:mt-0">
           <div className="h-[320px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
             <div className="h-[320px] flex flex-col justify-start">
               <img className="pt-4 h-12 w-12 mx-auto" src={corona_icon}></img>
-              <p className="pt-2 text-rose-400 text-xl md:text-2xl mx-auto font-semibold">
+              <p className="pt-2 text-[#DF7D76] text-xl text-xl mx-auto font-mont font-bold">
                 COVID UPDATES
               </p>
               {!data?.covidData && (
@@ -31,29 +31,35 @@ const Covid: FunctionComponent<{}> = () => {
                   <ul>
                     <li className="h-8 text-lg border-b-2 border-zinc-200">
                       <div className="flex justify-between">
-                        <p className="px-8 text-zinc-500">Cases</p>
-                        <p className="px-8 text-zinc-500">
+                        <p className="px-8 pt-2 text-black text-sm font-noto">
+                          Cases
+                        </p>
+                        <p className="px-8 pt-2 text-black text-sm font-noto">
                           {data.covidData?.cases.toLocaleString(undefined)}
                         </p>
                       </div>
                     </li>
                     <li className="h-8 text-lg border-b-2 border-zinc-200">
                       <div className="flex justify-between">
-                        <p className="px-8 text-zinc-500">Deaths</p>
-                        <p className="px-8 text-zinc-500">
+                        <p className="px-8 pt-2 text-black text-sm font-noto">
+                          Deaths
+                        </p>
+                        <p className="px-8 pt-2 text-black text-sm font-noto">
                           {data.covidData?.deaths.toLocaleString(undefined)}
                         </p>
                       </div>
                     </li>
                     <li className="h-8 text-lg border-b-2 border-zinc-200">
                       <div className="flex justify-between">
-                        <p className="px-8 text-zinc-500">Recovered</p>
-                        <p className="px-8 text-zinc-500">
+                        <p className="px-8 pt-2 text-black text-sm font-noto">
+                          Recovered
+                        </p>
+                        <p className="px-8 pt-2 text-black text-sm font-noto">
                           {data.covidData?.recovered.toLocaleString(undefined)}
                         </p>
                       </div>
                     </li>
-                    <li className="h-8 text-lg border-b-2 border-zinc-200">
+                    {/* <li className="h-8 text-lg border-b-2 border-zinc-200">
                       <div className="flex justify-between">
                         <p className="px-8 text-zinc-500">Population</p>
                         <p className="px-8 text-zinc-500">
@@ -62,7 +68,7 @@ const Covid: FunctionComponent<{}> = () => {
                           )}
                         </p>
                       </div>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               )}

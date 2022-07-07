@@ -5,6 +5,11 @@ type country_code {
   languages: String
   lat: Float
   long: Float
+  covid: CovidData
+    @materializer(
+      query: "getCovidData"
+      arguments: [{ name: "countryCode", field: "countryCode" }]
+    )
   country: [CountryEntry]
     @materializer(
       query: "country"
@@ -34,16 +39,6 @@ type country_code {
   holidays: Holiday
     @materializer(
       query: "holidayListByCountry"
-      arguments: [{ name: "countryCode", field: "countryCode" }]
-    )
-  covid: CovidData
-    @materializer(
-      query: "covid"
-      arguments: [{ name: "countryCode", field: "countryCode" }]
-    )
-  historical_covid: HistoricalCovidData
-    @materializer(
-      query: "historical_covid"
       arguments: [{ name: "countryCode", field: "countryCode" }]
     )
   currency_latest_rates: Currency_Latest_Rates

@@ -22,16 +22,10 @@ query getDataByVisitorID($from: String!, $start_date: Date!, $end_date: Date!, $
         }
       }
       covid {
-        active
-        deaths
-        recovered
-        population
-      }
-      historical_covid {
-        timeline {
-          cases
-          deaths
-          recovered
+        Countries {
+          TotalConfirmed
+          TotalDeaths
+          TotalRecovered
         }
       }
       weather {

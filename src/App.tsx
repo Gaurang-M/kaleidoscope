@@ -10,7 +10,7 @@ import {
 import LandingPage from "./components/LandingPage";
 
 import { useVisitorData } from "@fingerprintjs/fingerprintjs-pro-react";
-import bgImage from "./assets/bg1.svg";
+import bgImage from "./assets/bg3.svg";
 
 function App() {
   const [coord, setCoord] = useState<Coordinates | null>(null);
@@ -74,7 +74,10 @@ function App() {
 
   return (
     //style={{ backgroundImage: `url(${bgImage})` }}
-    <div style={{ backgroundImage: `url(${bgImage})` }}>
+    <div
+      className="bg-[#F6F6F6]"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
       <kaleidoscopeAppContext.Provider
         value={{
           KaleidoscopeData: data,

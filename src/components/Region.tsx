@@ -47,8 +47,8 @@ const Region: FunctionComponent<{}> = () => {
           )}
           {data?.languages && (
             <div className="flex justify-start">
-              <FaLanguage className="my-auto h-8 w-8 text-cyan-500" />
-              <p className="font-mont my-auto pl-2 text-xs md:text-sm text-white text-end">
+              <FaLanguage className="mt-4 h-8 w-8 text-cyan-500" />
+              <p className="font-mont mt-6 pl-2 text-xs md:text-sm text-white text-end">
                 {data.languages?.join(",")}
               </p>
             </div>
@@ -75,7 +75,9 @@ const Region: FunctionComponent<{}> = () => {
               </div>
             </div>
             <div className="font-noto font-bold flex justify-start pt-2">
-              <p className="text-sm text-white">{moment().format("h:mm a")}</p>
+              <p className="text-sm text-white w-fit">
+                {moment().format("h:mm a")}
+              </p>
               <p className="text-sm text-white px-2"> | </p>
               <p className="text-sm text-white">{data.tz}</p>
               <p className="text-sm text-white px-1"></p>
