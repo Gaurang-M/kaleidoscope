@@ -30,7 +30,7 @@ const Weather: FunctionComponent<{}> = () => {
               <p className="pt-2 pl-2 text-2xl text-black font-noto ">&deg;C</p>
             </div>
             <div className="hidden md:block md:mx-auto flex justify-center">
-              <p className="pt-4 text-sm text-zinc-500">{data.weather?.desc}</p>
+              <p className="p-2 text-sm text-zinc-500">{data.weather?.desc}</p>
             </div>
             <div className="flex justify-center">
               <img className="w-fit h-fit" src={data.weather?.icon}></img>
