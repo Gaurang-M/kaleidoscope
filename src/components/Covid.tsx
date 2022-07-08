@@ -12,8 +12,8 @@ const Covid: FunctionComponent<{}> = () => {
   return (
     <>
       {data.covidData && (
-        <div className="flex flex-col w-1/2 relative justify-end md:mx-4 mt-8 md:mt-0">
-          <div className="h-[320px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
+        <div className="flex flex-col w-full md:w-1/2 relative justify-end md:mx-4 mt-8 md:mt-0">
+          <div className="h-[320px] w-full border-2 border-stone-300 rounded-3xl drop-shadow-lg bg-white">
             <div className="h-[320px] flex flex-col justify-start">
               <img className="pt-4 h-12 w-12 mx-auto" src={corona_icon}></img>
               <p className="pt-2 text-[#DF7D76] text-xl text-xl mx-auto font-mont font-bold">
@@ -74,7 +74,7 @@ const Covid: FunctionComponent<{}> = () => {
               )}
             </div>
           </div>
-          <div className="h-[324px] w-full rounded-3xl md:mx-2 absolute">
+          <div className="h-[324px] w-full rounded-3xl absolute">
             <img className="mx-auto z-40" src={element}></img>
             {data.covidDataTimeSeriese && (
               <img

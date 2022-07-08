@@ -73,7 +73,7 @@ const Pollution: FunctionComponent<{}> = () => {
 
   return (
     <div className="flex flex-col w-full md:w-2/5 relative justify-end pt-8 md:pt-0 md:mx-5">
-      <div className="h-[220px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
+      <div className="h-[220px] w-full border-2 border-stone-300 rounded-3xl drop-shadow-lg bg-white">
         <div className="flex justify-evenly">
           <div className="flex flex-col">
             <p className="text-[#DF7D76] text-xl mx-auto font-mont font-bold pt-4">
@@ -181,7 +181,7 @@ const Pollution: FunctionComponent<{}> = () => {
           </div>
         </div>
       </div>
-      <div className="h-56 w-full rounded-3xl md:mx-2 absolute">
+      <div className="h-56 w-full rounded-3xl absolute">
         <img className="mx-auto z-40" src={element}></img>
       </div>
     </div>

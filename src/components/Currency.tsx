@@ -12,7 +12,7 @@ const Currency: FunctionComponent<{}> = () => {
   return (
     <>
       <div className="flex flex-col w-full md:w-2/3 relative justify-end pt-8 md:pt-0">
-        <div className="h-[220px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
+        <div className="h-[220px] w-full border-2 border-stone-300 rounded-3xl drop-shadow-lg bg-white">
           <div className="flex justify-center">
             <p className="text-[#DF7D76] text-xl font-mont font-bold pt-4">
               CURRENCY
@@ -37,7 +37,7 @@ const Currency: FunctionComponent<{}> = () => {
             )}
           </div>
         </div>
-        <div className="h-56 w-full rounded-3xl md:mx-2 absolute">
+        <div className="h-56 w-full rounded-3xl absolute">
           <img className="mx-auto z-40" src={element}></img>
           <div className="flex justify-end">
             <img

@@ -85,12 +85,14 @@ const Region: FunctionComponent<{}> = () => {
             </div>
           </div>
         </div>
-        <div className="flex p-8 md:p-2 justify-center">
-          <img
-            className="w-[40px] h-[30px] md:p-4 md:w-[65px] md:h-[55px]"
-            src={data.flag as string}
-          ></img>
-        </div>
+        {data.flag && (
+          <div className="flex p-8 md:p-2 justify-center">
+            <img
+              className="w-[40px] h-[30px] md:p-4 md:w-[65px] md:h-[55px]"
+              src={data.flag as string}
+            ></img>
+          </div>
+        )}
       </div>
     </div>
   );

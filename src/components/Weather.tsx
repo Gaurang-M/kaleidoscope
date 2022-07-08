@@ -15,7 +15,7 @@ const Weather: FunctionComponent<{}> = () => {
 
   return (
     <div className="flex flex-col w-full md:w-1/3 relative justify-end">
-      <div className="h-[150px] md:h-[220px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
+      <div className="h-[150px] md:h-[220px] w-full border-2 border-stone-300 rounded-3xl drop-shadow-lg bg-white">
         <div className="">
           <div className="flex justify-center">
             <p className="font-mont font-bold text-[#DF7D76] text-xl mx-auto pt-4">
@@ -38,7 +38,7 @@ const Weather: FunctionComponent<{}> = () => {
           </div>
         </div>
       </div>
-      <div className="h-[154px] md:h-56 w-full rounded-3xl md:mx-2 absolute">
+      <div className="h-[154px] md:h-56 w-full rounded-3xl absolute">
         <img className="mx-auto z-40" src={element}></img>
       </div>
     </div>

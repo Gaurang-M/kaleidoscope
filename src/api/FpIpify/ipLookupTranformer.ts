@@ -66,7 +66,7 @@ export const getKaleidoscopeDataFromIpLookup = (responseData: any) => {
       icon: ipLookup.weather.current.condition.icon,
       desc: ipLookup.weather.current.condition.text,
     },
-    flag: countryData.flags.png,
+    flag: countryData?.flags ? countryData.flags.png : null,
     currencyName: countryData?.currencies[ipLookup.currency].name,
     currencySymbol: countryData?.currencies[ipLookup.currency].symbol,
     timezone: countryData?.timezones,

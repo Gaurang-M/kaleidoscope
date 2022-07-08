@@ -30,36 +30,38 @@ const Food: FunctionComponent<{}> = () => {
   };
 
   return (
-    <div className="flex flex-col w-full md:w-1/2 relative justify-start md:ml-2">
-      <div className="h-[250px] w-full border-2 border-stone-300 rounded-3xl md:mx-2 drop-shadow-lg bg-white">
-        <div className="h-[250px] flex flex-col justify-start">
-          <div className="flex justify-center p-4">
-            <img src={food}></img>
+    <div className="flex flex-col justify-between w-full md:w-1/2">
+      <div className="flex flex-col w-full justify-end relative">
+        <div className="h-[250px] w-full border-2 border-stone-300 rounded-3xl drop-shadow-lg bg-white">
+          <div className="h-[250px] flex flex-col justify-start">
+            <div className="flex justify-center p-4">
+              <img src={food}></img>
+            </div>
+            <p className="pt-2 text-[#DF7D76] text-xl mx-auto font-mont font-bold">
+              POPULAR FOOD
+            </p>
           </div>
-          <p className="pt-2 text-[#DF7D76] text-xl mx-auto font-mont font-bold">
-            POPULAR FOOD
-          </p>
         </div>
-      </div>
-      <div className="h-[254px] w-full rounded-3xl md:mx-2 absolute">
-        <img className="mx-auto z-40" src={element}></img>
-        <div className="flex flex-wrap justify-center pt-32 w-full h-fit">
-          {tags?.map((tag: any, i: number) => {
-            return (
-              <div key={i}>
-                {tag.length > 0 && (
-                  <div
-                    onClick={() => onTagCLick(tag)}
-                    className="border-2 bg-[#1D97DC] rounded-3xl mx-1 cursor-pointer"
-                  >
-                    <p className="capitalize text-sm text-white font-noto p-1 px-3">
-                      {tag}
-                    </p>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+        <div className="h-[254px] w-full rounded-3xl absolute">
+          <img className="mx-auto z-40" src={element}></img>
+          <div className="flex flex-wrap justify-center pt-32 w-full h-fit">
+            {tags?.map((tag: any, i: number) => {
+              return (
+                <div key={i}>
+                  {tag.length > 0 && (
+                    <div
+                      onClick={() => onTagCLick(tag)}
+                      className="border-2 bg-[#1D97DC] rounded-3xl mx-1 cursor-pointer"
+                    >
+                      <p className="capitalize text-sm text-white font-noto p-1 px-3">
+                        {tag}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
