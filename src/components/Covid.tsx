@@ -12,7 +12,7 @@ const Covid: FunctionComponent<{}> = () => {
   return (
     <>
       {data.covidData && (
-        <div className="flex flex-col w-full md:w-1/2 relative justify-end md:mx-4 mt-8 md:mt-0">
+        <div className="flex flex-col w-full relative justify-end mt-8 md:mt-0 md:ml-2 ml-0">
           <div className="h-[320px] w-full border-2 border-stone-300 rounded-3xl drop-shadow-lg bg-white">
             <div className="h-[320px] flex flex-col justify-start">
               <img className="pt-4 h-12 w-12 mx-auto" src={corona_icon}></img>

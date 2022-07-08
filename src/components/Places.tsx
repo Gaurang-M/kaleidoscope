@@ -62,7 +62,7 @@ const Places: FunctionComponent<{}> = () => {
   };
 
   return (
-    <div className="flex flex-col w-full relative justify-end md:mx-4 pt-8 md:pt-0">
+    <div className="flex flex-col w-full relative justify-end pt-8 md:pt-0 md:ml-2 ml-0">
       <div className="h-[332px] w-full border-2 border-stone-300 rounded-3xl drop-shadow-lg bg-white">
         <div className="h-[332px] flex flex-col justify-start">
           <FaMapMarkerAlt className="pt-4 h-12 w-12 mx-auto text-rose-400" />

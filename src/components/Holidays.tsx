@@ -23,7 +23,7 @@ const Holidays: FunctionComponent<{}> = () => {
   let upcomingHolidays = sortedUpcommingHolidays?.slice(0, 6);
 
   return (
-    <div className="flex flex-col w-full relative justify-end ">
+    <div className="flex flex-col w-full relative justify-end md:mr-2 mr-0">
       <div className="h-[332px] w-full border-2 border-stone-300 rounded-3xl drop-shadow-lg bg-white">
         <div className="h-[324px] flex flex-col justify-start">
           <img className="pt-4 h-12 w-12 mx-auto" src={cal_icon}></img>
