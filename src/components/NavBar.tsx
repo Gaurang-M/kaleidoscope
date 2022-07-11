@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import bgImage from "../assets/topbg1.png";
-import icon from "../assets/icon.png";
+import icon from "../assets/icon.svg";
 
 const NavBar: FunctionComponent<{}> = () => {
   return (
