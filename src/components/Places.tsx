@@ -108,7 +108,7 @@ const Places: FunctionComponent<{}> = () => {
                     <li className="h-fit py-1 flex flex-col justify-center text-lg border-b-2 border-zinc-200">
                       <div className="flex flex-wrap justify-between">
                         <a
-                          className="px-2 md:px-8 w-1/2 text-[#1D97DC] font-noto font-bold text-sm cursor-pointer break-words"
+                          className="px-8 w-1/2 text-[#1D97DC] font-noto font-bold text-sm cursor-pointer break-words"
                           href={`https://www.google.com/maps/search/?api=1&query=${place.long},${place.lat}`}
                           target="_blank"
                           rel="noopener noreferrer"

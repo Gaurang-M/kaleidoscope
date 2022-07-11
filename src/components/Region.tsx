@@ -34,28 +34,28 @@ const Region: FunctionComponent<{}> = () => {
             <img className="w-[73px] h-[46px]" src={data.flag as string}></img>
           </div> */}
         </div>
-        <ul className="flex">
+        <ul className="flex flex-col md:flex-row">
           {data.city && (
-            <p className="font-mont font-medium p-2 pl-6 text-4xl text-white">
+            <p className="font-mont font-medium pl-6 text-4xl text-white">
               {data.city}
             </p>
           )}
           {!data.city && data.region && (
-            <p className="font-mont font-medium p-2 pl-6 text-4xl text-white">
+            <p className="font-mont font-medium pl-6 text-4xl text-white">
               {data.region}
             </p>
           )}
           {data?.languages && (
-            <div className="flex justify-start">
-              <FaLanguage className="mt-4 h-8 w-8 text-cyan-500" />
-              <p className="font-mont mt-6 pl-2 text-xs md:text-sm text-white text-end">
+            <div className="flex justify-start pl-6 md:pl-2">
+              <FaLanguage className="h-8 w-8 my-auto text-cyan-500" />
+              <p className="font-mont pl-2 my-auto text-xs md:text-sm text-white text-end">
                 {data.languages?.join(",")}
               </p>
             </div>
           )}
         </ul>
       </div>
-      <div className="flex justify-between md:justify-start pl-4 md:pl-0">
+      <div className="flex justify-between md:justify-start pl-2 md:pl-0">
         <div className="flex flex-col my-auto p-4 md:px-24 md:p-0">
           {/* <div className="w-full md:w-[600px] h-[149px] rounded-t-3xl absolute">
           <img className="mx-auto" src={element}></img>

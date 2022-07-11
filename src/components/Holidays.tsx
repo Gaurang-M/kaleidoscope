@@ -43,7 +43,7 @@ const Holidays: FunctionComponent<{}> = () => {
                       className="h-fit py-1 text-lg border-b-2 border-zinc-200 flex flex-col justify-center"
                     >
                       <div className="flex justify-start">
-                        <p className="px-2 text-black text-sm font-noto">
+                        <p className="px-8 text-black text-sm font-noto">
                           {moment(holiday.date).format("Do MMM")}
                         </p>
                         <p className="px-2 text-black text-sm  font-noto">-</p>
