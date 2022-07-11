@@ -16,7 +16,7 @@ const NavBar: FunctionComponent<{}> = () => {
           src={icon}
         ></img>
         <div className="pl-2 flex flex-col justify-start">
-          <p className=" font-mont text-xl text-white font-light text-shadow">
+          <p className=" font-mont text-2xl text-white font-light text-shadow">
             Place Kaleidoscope
           </p>
           <p className="font-mont text-lg text-white font-bold">Cityscape</p>
