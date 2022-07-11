@@ -10,14 +10,17 @@ const NavBar: FunctionComponent<{}> = () => {
     >
       <div className="flex">
         <img
-          className="rounded-full h-12 w-12 my-auto"
+          className="rounded-full my-auto"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal1"
           src={icon}
         ></img>
-        <p className="pl-2 font-mont text-2xl text-white font-light my-auto text-shadow">
-          Place Kaleidoscope
-        </p>
+        <div className="pl-2 flex flex-col justify-start">
+          <p className=" font-mont text-xl text-white font-light text-shadow">
+            Place Kaleidoscope
+          </p>
+          <p className="font-mont text-lg text-white font-bold">Cityscape</p>
+        </div>
       </div>
     </div>
   );
