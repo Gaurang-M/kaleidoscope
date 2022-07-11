@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/kaleidoscope/static/css/main.109376d9.css",
-    "main.js": "/kaleidoscope/static/js/main.4b560792.js",
+    "main.js": "/kaleidoscope/static/js/main.80741620.js",
     "static/js/787.c1112931.chunk.js": "/kaleidoscope/static/js/787.c1112931.chunk.js",
     "static/media/bg3.svg": "/kaleidoscope/static/media/bg3.8dbc3e35f65c9bdd39d95f82344f015b.svg",
     "static/media/topbg1.png": "/kaleidoscope/static/media/topbg1.83e35b2d0a5d1ae61e3d.png",
-    "static/media/icon.png": "/kaleidoscope/static/media/icon.560ba00d57ec43ca662c.png",
     "static/media/cal_link.svg": "/kaleidoscope/static/media/cal_link.80bbd557e4e9b51e81e58992514bdbda.svg",
     "static/media/food.svg": "/kaleidoscope/static/media/food.3fa29e9ab438d85256dac2fc419f454f.svg",
     "static/media/timeline_link.svg": "/kaleidoscope/static/media/timeline_link.ebcd72fe1b3fe5e8fe2bbbc8bcb54be6.svg",
     "static/media/corona_icon.svg": "/kaleidoscope/static/media/corona_icon.772bb85d1e096b3503af5ac0a56aee50.svg",
     "static/media/currency_icon.svg": "/kaleidoscope/static/media/currency_icon.7961570bf57c7e7ac41c2e010a92ec55.svg",
     "static/media/cal_icon.svg": "/kaleidoscope/static/media/cal_icon.0daaccf433c225e7e69fe19f37aaaba8.svg",
+    "static/media/icon.svg": "/kaleidoscope/static/media/icon.991a8ee1b0e330897e8857994a9f0599.svg",
     "index.html": "/kaleidoscope/index.html",
     "static/media/element1.svg": "/kaleidoscope/static/media/element1.af593b3fb31b4fa8746a4d3f994b11ad.svg",
     "main.109376d9.css.map": "/kaleidoscope/static/css/main.109376d9.css.map",
-    "main.4b560792.js.map": "/kaleidoscope/static/js/main.4b560792.js.map",
+    "main.80741620.js.map": "/kaleidoscope/static/js/main.80741620.js.map",
     "787.c1112931.chunk.js.map": "/kaleidoscope/static/js/787.c1112931.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.109376d9.css",
-    "static/js/main.4b560792.js"
+    "static/js/main.80741620.js"
   ]
 }
