@@ -7,7 +7,7 @@ const Footer: FunctionComponent<{}> = () => {
       <p className="font-mont py-1 text-lg text-white font-bold mx-auto">
         Cityscape
       </p> */}
-      <p className="font-mont text-white text-lg mx-auto pt-8">Project By</p>
+      <p className="font-mont text-white text-lg mx-auto pt-2">Project By</p>
       <p className="font-mont text-white text-xs mx-auto py-4">
         Abhishek Dwivedi | Sumit Sarkar | Yashraj Chawathey | Gaurang Manjrekar
       </p>
