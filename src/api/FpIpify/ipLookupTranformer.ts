@@ -69,7 +69,11 @@ export const getKaleidoscopeDataFromIpLookup = (responseData: any) => {
     flag: countryData?.flags ? countryData.flags.png : null,
     currencyName: countryData?.currencies[ipLookup.currency].name,
     currencySymbol: countryData?.currencies[ipLookup.currency].symbol,
-    timezone: countryData?.timezones,
+    timezone: countryData?.timezones
+      ? Array.isArray(countryData?.timezones)
+        ? countryData?.timezones[0]
+        : countryData?.timezones
+      : null,
     tempreature: ipLookup.weather.forecast.forecastday[0].day.mintemp_c,
     aqi: ipLookup.air_quality.data.aqi,
     cafes: ipLookup.nearby_cafes.features.map((place: any) => {
