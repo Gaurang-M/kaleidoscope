@@ -4,13 +4,17 @@ export const getKaleidoscopeDataFromLatLongLookup = (responseData: any) => {
   let countryData = responseData.data.getDataforLatLong.country[0];
   return {
     country: ipLookup.countryName,
-    region: data.getNearbyInfoFromLatLong.geonames[3].name,
+    region: data.getNearbyInfoFromLatLong.geonames[3]
+      ? data.getNearbyInfoFromLatLong.geonames[3].name
+      : null,
     tz: null,
     city: data.getNearbyInfoFromLatLong.geonames[4]
       ? data.getNearbyInfoFromLatLong.geonames[4].toponymName
       : null,
     currency: ipLookup.currency,
-    continent: data.getNearbyInfoFromLatLong.geonames[1].name,
+    continent: data.getNearbyInfoFromLatLong.geonames[1]
+      ? data.getNearbyInfoFromLatLong.geonames[1].name
+      : null,
     lat: ipLookup.lat,
     long: ipLookup.long,
     languages: countryData?.languages

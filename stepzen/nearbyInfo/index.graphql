@@ -27,5 +27,25 @@ type Query {
   getNearbyInfoFromLatLong(lat: Float, lng: Float): GeonamesRoot
     @rest(
       endpoint: "http://api.geonames.org/extendedFindNearbyJSON?lat=$lat&lng=$lng&username=gaurang7"
+      cel: """
+        function transformREST(s) {
+        let out = JSON.parse(s);
+        if(out.address){
+          let reponse = {"geonames" : [{
+            "toponymName": "Earth",
+            "name": "Earth"
+          },null,null,{
+            "toponymName": out.address.adminName1,
+            "name": out.address.adminName1
+          },{
+            "toponymName": out.address.placename,
+            "name": out.address.placename
+          }]};
+          return JSON.stringify(reponse);
+        }else{
+          return JSON.stringify(out);
+        }
+      }
+      """
     )
 }

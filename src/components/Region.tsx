@@ -13,13 +13,26 @@ const Region: FunctionComponent<{}> = () => {
     <div className="flex flex-col md:flex-row justify-between h-fit md:h-32 bg-[#060A56] border-t-4 border-rose-300 mx-3 md:mx-6 rounded-b-3xl drop-shadow-2xl">
       <div className="flex flex-col md:w-1/2">
         <div className="flex justify-start">
-          <p className="font-noto font-semibold p-1 pl-6 text-sm text-sky-400">
-            {data.continent}
-          </p>
-          <p className="font-noto font-semibold p-1 text-sm text-white">/</p>
-          <p className="font-noto font-semibold p-1 text-sm text-sky-400">
-            {data.country}
-          </p>
+          {data.continent && (
+            <>
+              <p className="font-noto font-semibold p-1 pl-6 text-sm text-sky-400">
+                {data.continent}
+              </p>
+              <p className="font-noto font-semibold p-1 text-sm text-white">
+                /
+              </p>
+            </>
+          )}
+          {data.continent && (
+            <p className="font-noto font-semibold p-1 text-sm text-sky-400">
+              {data.country}
+            </p>
+          )}
+          {!data.continent && (
+            <p className="font-noto font-semibold p-1 pl-6 text-sm text-sky-400">
+              {data.country}
+            </p>
+          )}
           {data.city && data.region && (
             <>
               <p className="font-noto font-semibold p-1 text-sm text-white">
