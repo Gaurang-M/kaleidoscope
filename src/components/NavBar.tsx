@@ -19,7 +19,7 @@ const NavBar: FunctionComponent<{}> = () => {
           <p className=" font-mont text-2xl text-white font-light text-shadow">
             Kaleidoscope
           </p>
-          <p className="font-mont text-lg text-white font-bold">Cityscape</p>
+          <p className="font-mont text-lg text-white font-bold">CityScape</p>
         </div>
       </div>
     </div>
