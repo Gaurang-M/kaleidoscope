@@ -11,7 +11,7 @@ const Region: FunctionComponent<{}> = () => {
   ).KaleidoscopeData;
   return (
     <div className="flex flex-col md:flex-row justify-between h-fit md:h-32 bg-[#060A56] border-t-4 border-rose-300 mx-3 md:mx-6 rounded-b-3xl drop-shadow-2xl">
-      <div className="flex flex-col">
+      <div className="flex flex-col md:w-1/2">
         <div className="flex justify-start">
           <p className="font-noto font-semibold p-1 pl-6 text-sm text-sky-400">
             {data.continent}
@@ -55,7 +55,7 @@ const Region: FunctionComponent<{}> = () => {
           )}
         </ul>
       </div>
-      <div className="flex justify-between md:justify-start pl-2 md:pl-0">
+      <div className="flex justify-between md:justify-start pl-2 md:pl-0 md:w-1/2">
         <div className="flex flex-col my-auto p-4 md:px-24 md:p-0">
           {/* <div className="w-full md:w-[600px] h-[149px] rounded-t-3xl absolute">
           <img className="mx-auto" src={element}></img>

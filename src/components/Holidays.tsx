@@ -34,7 +34,7 @@ const Holidays: FunctionComponent<{}> = () => {
             Upcoming Holidays
           </p> */}
           <div className="pt-1">
-            <ul>
+            <ul className="overflow-auto h-[225px]">
               {upcomingHolidays &&
                 upcomingHolidays.map((holiday, i) => {
                   return (

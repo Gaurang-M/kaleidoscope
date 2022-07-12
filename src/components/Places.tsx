@@ -100,7 +100,7 @@ const Places: FunctionComponent<{}> = () => {
           })}
         </div>
         <div className="pt-1">
-          <ul>
+          <ul className="overflow-auto h-[190px]">
             {placeData.map((place: any, i: number) => {
               return (
                 <div key={i}>
