@@ -30,8 +30,8 @@ const Currency: FunctionComponent<{}> = () => {
             {data?.currencyRate && (
               <div className="flex justify-center">
                 <div className="pt-3 text-2xl text-[#DF7D76] font-mont font-bold">
-                  1 {data?.currency} ({data?.currencySymbol}) ={" "}
-                  {data?.currencyRate?.rate} {data?.currencyRate?.base}
+                  {data?.currencyRate?.rate.toFixed(2)} {data?.currency} (
+                  {data?.currencySymbol}) = 1 {data?.currencyRate?.base}
                 </div>
               </div>
             )}
