@@ -15,11 +15,13 @@ const NavBar: FunctionComponent<{}> = () => {
           data-bs-target="#exampleModal1"
           src={icon}
         ></img>
-        <div className="pl-2 flex flex-col justify-start">
+        <div className="pl-2">
           <p className=" font-mont text-2xl text-white font-light text-shadow">
             Kaleidoscope
           </p>
-          <p className="font-mont text-lg text-white font-bold">CityScape</p>
+          <p className="font-mont text-lg text-white font-bold mt-[-6px]">
+            CityScape
+          </p>
         </div>
       </div>
     </div>
