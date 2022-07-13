@@ -33,6 +33,8 @@ We have used open-source and/or free-tier API infrastructure to source our infor
  - [Local holidays](https://dev.to/monfernape/get-country-holidays-using-google-calendar-api-3dh6)
  - [Places of Interest](https://opentripmap.io/tiles)
  - [Foods of Interest](https://beta.openai.com/examples/default-factual-answering)
+ 
+ ![](./assets/Kaleidoscope-Stepzen.jpg)
 
 ## Challenges we ran into
 There are three key challenges that we had to face in order to bring **Kaleidoscope @ CityScape** to life:
